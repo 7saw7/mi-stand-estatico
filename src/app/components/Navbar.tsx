@@ -17,9 +17,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
       : "bg-black text-white";
 
   return (
-    <nav
-      className={`${variantClass} p-3 flex justify-between items-center shadow-xl`}
-    >
+    <nav className={`${variantClass} relative p-3 flex flex-col sm:flex-row justify-between items-center shadow-xl`}>
       {/* Logo + Nombre */}
       <Link href="/" className="flex items-center space-x-3">
         <Image
@@ -92,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
 
       {/* Menú móvil */}
       {isOpen && (
-        <ul className="absolute top-full left-0 w-full bg-blue-700 flex flex-col space-y-2 p-4 sm:hidden">
+        <ul className={`w-full bg-blue-700 flex flex-col space-y-2 p-4 sm:hidden ${isOpen ? "block" : "hidden"}`}>
           <li>
             <Link
               href="/"
