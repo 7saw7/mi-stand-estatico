@@ -27,11 +27,11 @@ const Home: React.FC = () => {
               ¿Quiénes Somos?
               </p>
               </MainTitle>
+            <div className="mb-6 text-center">
             <MainDescription variant="dark">
-              <p className="mb-6 text-center">
                 Más allá del código, somos tus aliados estratégicos. <br />Nuestra pasión es entender tus desafíos y convertirlos en oportunidades con software y tecnología que realmente importan.
-              </p>
             </MainDescription>
+            </div>
             <MainButton variant="dark">Más información</MainButton>
           </article>
         </section>
