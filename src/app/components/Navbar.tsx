@@ -14,10 +14,18 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
   const variantClass =
     variant === "light"
       ? "bg-white text-black border-b-2 border-black"
-      : "bg-black text-white";
+      : "text-white";
 
   return (
-    <nav className={`${variantClass} relative p-3 flex flex-col sm:flex-row justify-between items-center shadow-xl`}>
+    <nav
+      className={`${variantClass} relative p-3 flex flex-col sm:flex-row justify-between items-center shadow-xl`}
+      style={
+        variant === "dark"
+          ? { backgroundImage: 'linear-gradient(135deg, var(--color-azul-oscuro), var(--color-verde)' }
+          : undefined
+      }
+    >
+      
       {/* Logo + Nombre */}
       <Link href="/" className="flex items-center space-x-3">
         <Image

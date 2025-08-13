@@ -5,9 +5,9 @@ type ServiceCardProps = {
 };
 
 export default function ServiceCard({ title, description, variant = "dark" }: ServiceCardProps) {
-  const bgColor = variant === "light" ? "bg-white" : "bg-gray-800";
+  const bgColor = variant === "light" ? "bg-white" : "bg-[var(--color-verde)]";
   const titleColor = variant === "light" ? "text-black" : "text-white";
-  const descColor = variant === "light" ? "text-gray-600" : "text-gray-400";
+  const descColor = variant === "light" ? "text-gray-600" : "text-white";
 
   return (
     <div className={`${bgColor} rounded-2xl shadow-lg p-6 hover:shadow-2xl transition`}>

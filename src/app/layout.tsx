@@ -25,14 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Aquí defines el tema que quieres usar por defecto o mediante prop/contexto
-  const variant: "light" | "dark" = "light";
+  const variant: "light" | "dark" = "dark";
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="font-sans transition-all duration-500 min-h-screen flex flex-col">
+        <div className="font-sans transition-all duration-500 min-h-screen flex flex-col bg-[var(--color-azul-oscuro)]">
           {/* Navbar fijo arriba */}
           <header>
             <Navbar variant={variant} />

@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
   return (
     <footer className={`${variantClass} text-center py-8 mt-10`}>
       <p className="mb-4">
-        © 2025 Nombre de Tu Empresa. Todos los derechos reservados.
+        © 2025 Blue Evolution. Todos los derechos reservados.
       </p>
       <div className="flex justify-center space-x-6 text-2xl">
         <a

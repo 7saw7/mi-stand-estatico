@@ -10,7 +10,7 @@ const MainButton: React.FC<MainButtonProps> = ({ onClick, children, variant = "d
   const variantClass =
     variant === "light"
       ? "bg-white text-black border border-black"
-      : "bg-black text-white";
+      : "bg-[var(--color-verde)] text-white";
   return (
     <button
       onClick={onClick}
