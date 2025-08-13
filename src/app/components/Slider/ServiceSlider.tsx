@@ -26,9 +26,9 @@ const services: Service[] = [
     description: "Gestiona tu empresa con sistemas a medida.",
   },
   {
-    title: "Consultoría en soluciones software",
+    title: "Consultoría",
     image: "/assets/images/consultoria.png",
-    description: "Ofrecemos servicios especializados de consultoría en software para ayudar a las empresas a diseñar, desarrollar, implementar y optimizar soluciones tecnológicas que impulsen su crecimiento y eficiencia operativa.",
+    description: "Consultoría en diseño e implementación de software empresarial.",
   },
 ];
 

@@ -9,7 +9,7 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = ({
   title = "Innovando tu futuro digital",
   desc = "Bienvenido a nuestro sitio web. Aquí encontrarás información sobre nuestros servicios y novedades.",
-  variant = "light", // por defecto oscuro
+  variant = "light", // por def
 }) => {
   const variantClass =
     variant === "light"
