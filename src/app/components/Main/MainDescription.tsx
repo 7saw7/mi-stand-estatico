@@ -9,7 +9,7 @@ const MainDescription: React.FC<MainDescriptionProps> = ({ children, variant = "
 const variantClass =
     variant === "light"
       ? "bg-white text-black border border-black"
-      : "bg-[var(--color-verde)] text-white";
+      : "text-white";
   return (
     <p className={`${variantClass}`}>
       {children}

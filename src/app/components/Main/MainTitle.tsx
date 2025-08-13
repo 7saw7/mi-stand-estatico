@@ -9,7 +9,7 @@ const MainTitle: React.FC<MainTitleProps> = ({ children, variant = "dark" }) => 
   const variantClass =
     variant === "light"
       ? "bg-white text-black border border-black"
-      : "bg-[var(--color-verde)] text-white";
+      : "text-white";
   return (
     <h2 className={`${variantClass} text-3xl font-bold mb-4 `}>
       {children}
