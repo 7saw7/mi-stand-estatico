@@ -21,11 +21,15 @@ const Home: React.FC = () => {
 
         {/* Bloque '¿Quiénes Somos?' con fondo verde limón, borde negro y esquinas curvas */}
         <section className="max-w-7xl mx-auto mt-12 mb-10 px-6">
-          <article className="bg-lime-400 border-2 border-black rounded-lg p-8">
-            <MainTitle variant="dark">¿Quiénes Somos?</MainTitle>
+          <article className="bg-green-900 border-2 border-black rounded-lg p-8 text-center">
+            <MainTitle variant="dark">
+              <p className="mb-6 text-center">
+              ¿Quiénes Somos?
+              </p>
+              </MainTitle>
             <MainDescription variant="dark">
-              <p className="mb-6">
-                Más allá del código, somos tus aliados estratégicos. Nuestra pasión es entender tus desafíos y convertirlos en oportunidades con software y tecnología que realmente importan.
+              <p className="mb-6 text-center">
+                Más allá del código, somos tus aliados estratégicos. <br />Nuestra pasión es entender tus desafíos y convertirlos en oportunidades con software y tecnología que realmente importan.
               </p>
             </MainDescription>
             <MainButton variant="dark">Más información</MainButton>
