@@ -98,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
 
       {/* Menú móvil */}
       {isOpen && (
-        <ul className={`w-full bg-blue-700 flex flex-col space-y-2 p-4 sm:hidden ${isOpen ? "block" : "hidden"}`}>
+        <ul className={`w-full bg-white/30 backdrop-blur-sm flex flex-col space-y-2 p-4 sm:hidden ${isOpen ? "block" : "hidden"}`}>
           <li>
             <Link
               href="/"

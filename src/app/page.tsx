@@ -2,7 +2,6 @@ import React from 'react';
 import Header from '@/components/Header';
 import MainTitle from '@/components/Main/MainTitle';
 import MainDescription from '@/components/Main/MainDescription';
-import MainButton from '@/components/Main/MainButton';
 import ServiceSlider from '@/components/Slider/ServiceSlider';
 
 const Home: React.FC = () => {
@@ -32,7 +31,6 @@ const Home: React.FC = () => {
                 Más allá del código, somos tus aliados estratégicos. <br />Nuestra pasión es entender tus desafíos y convertirlos en oportunidades con software y tecnología que realmente importan.
             </MainDescription>
             </div>
-            <MainButton variant="dark">Más información</MainButton>
           </article>
         </section>
 
@@ -42,7 +40,6 @@ const Home: React.FC = () => {
             <article key={title} className="block-base bg-[var(--color-verde)]">
               <MainTitle variant="dark">{title}</MainTitle>
               <MainDescription variant="dark">{desc}</MainDescription>
-              <MainButton variant="dark">Más información</MainButton>
             </article>
           ))}
         </section>
