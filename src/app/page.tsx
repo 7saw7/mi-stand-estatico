@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '@/components/Header';
-import MainTitle from '@/components/Main/MainTitle';
-import MainDescription from '@/components/Main/MainDescription';
+import ServiceCard from '@/components/Main/ServiceCard';
 import ServiceSlider from '@/components/Slider/ServiceSlider';
 
 const Home: React.FC = () => {
@@ -20,17 +19,12 @@ const Home: React.FC = () => {
 
         {/* Bloque '¿Quiénes Somos?' con fondo verde limón, borde negro y esquinas curvas */}
         <section className="max-w-7xl mx-auto mt-12 mb-10 px-6">
-          <article className="bg-green-900 border-2 border-black rounded-lg p-8 text-center">
-            <MainTitle variant="dark">
-              <p className="mb-6 text-center">
-              ¿Quiénes Somos?
-              </p>
-              </MainTitle>
-            <div className="mb-6 text-center">
-            <MainDescription variant="dark">
-                Más allá del código, somos tus aliados estratégicos. <br />Nuestra pasión es entender tus desafíos y convertirlos en oportunidades con software y tecnología que realmente importan.
-            </MainDescription>
-            </div>
+          <article className="block-base bg-green-900 border-2 border-black rounded-lg p-8 text-center">
+            <ServiceCard
+              title="¿Quiénes Somos?"
+              description="Más allá del código, somos tus aliados estratégicos. <br />Nuestra pasión es entender tus desafíos y convertirlos en oportunidades con software y tecnología que realmente importan."
+              variant="dark"
+            />
           </article>
         </section>
 
@@ -38,8 +32,11 @@ const Home: React.FC = () => {
         <section className="max-w-7xl mx-auto py-8 px-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map(({ title, desc }) => (
             <article key={title} className="block-base bg-[var(--color-verde)]">
-              <MainTitle variant="dark">{title}</MainTitle>
-              <MainDescription variant="dark">{desc}</MainDescription>
+              <ServiceCard
+                variant="dark"
+                title={title}
+                description={desc}
+              />
             </article>
           ))}
         </section>

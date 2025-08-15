@@ -64,11 +64,7 @@ export default function ServicesPage() {
                   </>
                 )
               }
-            >
-              <span className="text-sm italic text-white opacity-80">
-                Más Información
-              </span>
-            </ServiceCard>
+            />
 
             <ServiceCard
               variant="dark"
@@ -97,11 +93,7 @@ export default function ServicesPage() {
                   </>
                 )
               }
-            >
-              <span className="text-sm italic text-white opacity-80">
-                Más Información
-              </span>
-            </ServiceCard>
+            />
 
             <ServiceCard
               variant="dark"
@@ -129,11 +121,7 @@ export default function ServicesPage() {
                   </>
                 )
               }
-            >
-              <span className="text-sm italic text-white opacity-80">
-                Más Información
-              </span>
-            </ServiceCard>
+            />
           </div>
         </section>
       </main>
