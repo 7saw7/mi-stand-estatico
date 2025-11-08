@@ -23,8 +23,10 @@ const Home: React.FC = () => {
 
   return (
     <>
+
       <Header />
-      <main className="p-4 bg-[var(--color-azul-oscuro)]">
+      <main className="p-4 bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)]">
+
         <Hero />
         <ServiceSlider />
 

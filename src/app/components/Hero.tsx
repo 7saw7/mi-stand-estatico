@@ -28,12 +28,12 @@ const Hero: React.FC = () => {
     <section
       className={[
         "hero-section",
-        "relative overflow-hidden bg-gradient-to-r from-slate-900 via-[var(--color-azul-oscuro)] to-emerald-500/5 text-white",
+        "relative overflow-hidden text-white bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)]",
         isNegative ? "hero-negative" : "hero-normal",
       ].join(" ")}
     >
       {/* Agujero negro */}
-      <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
+      <div className="pointer-events-none absolute inset-1 z-0 flex items-center justify-center">
         <div className="bh-wrapper bh-supernova">
           <div className="bh-supernova-infinite" />
           <div className="bh-supernova-pulse" />

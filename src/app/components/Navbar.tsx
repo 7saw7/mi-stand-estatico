@@ -25,43 +25,18 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   const baseClasses =
-    "sticky top-0 z-40 w-full backdrop-blur-xl border-b transition-all duration-300 overflow-hidden";
-
+    "sticky top-0 w-full backdrop-blur-xl transition-all duration-300";
+    
   const themeClasses = isDark
     ? [
-        "border-cyan-500/10 text-slate-50",
-        "bg-slate-950/95",
-        "bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.10),transparent)]",
-        "bg-[radial-gradient(circle_at_left,_rgba(14,165,233,0.10),transparent)]",
+        "text-slate-50",
+        "bg-transparent border-0",
       ].join(" ")
-    : "bg-white/95 border-slate-200 text-slate-900";
+    : "bg-transparent text-slate-900";
+
 
   return (
     <nav className={`${baseClasses} ${themeClasses}`}>
-      {isDark && (
-        <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
-          {Array.from({ length: 80 }).map((_, i) => {
-            const columnWidth = 18;      // mismo que en CSS
-            const gap = 5;               // separación deseada
-            const left = i * (columnWidth + gap);
-
-            return (
-              <div
-                key={i}
-                className="matrix-column"
-                style={{
-                  left: `${left}px`,
-                  // todas arrancan juntas:
-                  animationDuration: `${3.2 + (i % 5) * 0.4}s`,
-                  animationDelay: "0s",
-                }}
-              >
-                {"01<>[]{}$#/*=+ΔΛ{};:".repeat(50)}
-              </div>
-            );
-          })}
-        </div>
-      )}
 
       <div className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-3 py-2 sm:px-4 sm:py-3 gap-4">
         {/* Logo + Nombre */}
