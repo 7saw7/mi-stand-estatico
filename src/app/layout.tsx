@@ -34,9 +34,7 @@ export default function RootLayout({
       >
         <div className="font-sans transition-all duration-500 min-h-screen flex flex-col bg-[var(--color-azul-oscuro)]">
           {/* Navbar fijo arriba */}
-          <header>
-            <Navbar variant={variant} />
-          </header>
+          <header/>
           {/* Contenido principal: que crece y ocupa espacio */}
             {children}
           {/* Footer abajo */}

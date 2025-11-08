@@ -42,7 +42,7 @@ export default function ServiceSlider() {
       pagination={{ clickable: true }}
       autoplay={{ delay: 4000 }}
       loop
-      className="max-w-4xl mx-auto"
+      className="mt-40 max-w-4xl mx-auto"
     >
       {services.map(({ title, image, description }) => (
         <SwiperSlide key={title}>
