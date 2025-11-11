@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
         <Link href="/" className="flex items-center gap-3 group">
           <div
             className={[
-              "relative flex h-11 w-11 items-center justify-center rounded-2xl",
+              "relative flex h-20 w-20 items-center justify-center rounded-2xl",
               "bg-slate-900/80 border border-cyan-400/40 shadow-[0_10px_30px_rgba(15,23,42,0.9)]",
               "overflow-hidden",
             ].join(" ")}
@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
               src="/assets/images/codeva-logo.png"
               alt="Blue Evolution"
               fill
-              className="object-contain p-1.5"
+              className="object-contain"
             />
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.25),transparent)]" />
           </div>
