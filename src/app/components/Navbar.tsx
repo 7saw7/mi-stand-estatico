@@ -59,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
 
           <div className="flex flex-col leading-tight">
             <span className="text-[19px] font-semibold tracking-tight">
-              Blue Evolution
+              Codeva Studio
             </span>
             <span className="text-[10px] uppercase tracking-[0.18em] text-cyan-400/80">
               Software Engineering Studio
