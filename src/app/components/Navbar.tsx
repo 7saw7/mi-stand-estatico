@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
             ].join(" ")}
           >
             <Image
-              src="/assets/images/logo.png"
+              src="/assets/images/codeva-logo.png"
               alt="Blue Evolution"
               fill
               className="object-contain p-1.5"
