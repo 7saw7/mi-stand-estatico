@@ -1,21 +1,27 @@
+// tailwind.config.js
+
+// AQUÍ ESTÁ LA SOLUCIÓN: Le decimos a ESLint que ignore la siguiente línea
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}"
-  ],
-  
+module.gen.exports = {
+  // ... (tus otras configuraciones)
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        darkbg: "#000000",
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        mono: ["var(--font-mono)", ...fontFamily.mono],
+        // 6. AÑADE ESTA LÍNEA PARA LA FUENTE DEL TÍTULO
+        display: ["var(--font-display)", ...fontFamily.sans],
       },
       fontFamily: {
-        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
-        mono: "var(--font-geist-mono)",
+        // AQUÍ ESTÁ LA MAGIA:
+        // Le decimos a Tailwind que 'font-sans' AHORA ES la variable '--font-sans' (Inter)
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        mono: ["var(--font-mono)", ...fontFamily.mono],
       },
+      // ... (tus otros 'extend')
     },
   },
   plugins: [],

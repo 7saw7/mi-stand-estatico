@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion"; // <-- 1. Importar motion
 
 type NavbarProps = {
   variant?: "light" | "dark";
@@ -22,6 +23,11 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
   const pathname = usePathname();
   const isDark = variant === "dark";
 
+  // 2. Nuevo estado para "trackear" el hover.
+  // Lo inicializamos con el 'pathname' actual para que la píldora
+  // aparezca en el enlace activo por defecto.
+  const [hoveredPath, setHoveredPath] = useState(pathname);
+
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   const baseClasses =
@@ -39,7 +45,8 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
     <nav className={`${baseClasses} ${themeClasses}`}>
 
       <div className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-3 py-2 sm:px-4 sm:py-3 gap-4">
-        {/* Logo + Nombre */}
+        
+        {/* Logo + Nombre (Sin cambios, ya era genial) */}
         <Link href="/" className="flex items-center gap-3 group">
           <div
             className={[
@@ -50,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
           >
             <Image
               src="/assets/images/codeva-logo.png"
-              alt="Blue Evolution"
+              alt="Codeva Studio" // Corregido el Alt
               fill
               className="object-contain"
             />
@@ -67,13 +74,14 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
           </div>
         </Link>
 
-        {/* Botón hamburguesa */}
+        {/* Botón hamburguesa (Sin cambios) */}
         <button
           className="sm:hidden relative flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/40 bg-slate-950/80 shadow-[0_8px_18px_rgba(15,23,42,0.9)] active:scale-95 transition-all"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          <div className="relative w-5 h-5">
+          {/* ... (spans del icono) ... */}
+           <div className="relative w-5 h-5">
             <span
               className={`absolute inset-x-0 h-[2px] rounded-full bg-cyan-400 transition-all ${
                 isOpen ? "top-1/2 rotate-45" : "top-1"
@@ -92,47 +100,59 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
           </div>
         </button>
 
-        {/* Menú desktop */}
-        <ul className="hidden sm:flex items-center gap-2 text-[13px] font-medium">
+        {/* ================================== */}
+        {/* Menú desktop (AQUÍ ESTÁ LA MAGIA) */}
+        {/* ================================== */}
+        <ul 
+          className="hidden sm:flex items-center gap-2 text-[13px] font-medium"
+          // 3. Cuando el mouse sale del 'ul', la píldora vuelve al 'pathname' activo
+          onMouseLeave={() => setHoveredPath(pathname)}
+        >
           {links.map((link) => {
             const active = pathname === link.href;
+
             return (
-              <li key={link.href}>
+              <li 
+                key={link.href}
+                className="relative" // El 'li' es el ancla de posición
+                // 4. Cuando el mouse entra a un 'li', actualiza el 'hoveredPath'
+                onMouseEnter={() => setHoveredPath(link.href)}
+              >
                 <Link
                   href={link.href}
                   className={[
-                    "group relative inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl",
-                    "transition-all duration-250",
-                    "bg-slate-900/70 border border-cyan-500/20",
-                    "shadow-[0_10px_24px_rgba(15,23,42,0.9)]",
-                    "hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(56,189,248,0.4)]",
-                    "before:absolute before:inset-x-1 before:top-0 before:h-[1.3px]",
-                    "before:bg-gradient-to-r before:from-cyan-400/40 before:via-sky-300/70 before:to-cyan-400/40 before:opacity-0",
-                    "group-hover:before:opacity-100 before:transition-opacity before:duration-300",
-                    active
-                      ? "text-cyan-300 border-cyan-400/70"
-                      : "text-slate-100 hover:text-cyan-300",
+                    "group relative inline-flex items-center gap-1.5 px-4 py-2",
+                    "transition-colors duration-250 z-10", // z-10 para que esté sobre la píldora
+                    // El texto cambia de color al instante, la píldora anima
+                    hoveredPath === link.href || pathname === link.href
+                      ? "text-cyan-300"
+                      : "text-slate-100",
                   ].join(" ")}
                 >
                   <span>{link.label}</span>
-                  <span
-                    className="text-[9px] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
-                    aria-hidden="true"
-                  >
-                    ▸
-                  </span>
-                  <span
-                    className="pointer-events-none absolute -bottom-2 left-3 right-3 h-2 opacity-0 group-hover:opacity-80 blur-[6px] bg-cyan-400/30 transition-opacity"
-                    aria-hidden="true"
-                  />
                 </Link>
+
+                {/* 5. La Píldora Mágica */}
+                {hoveredPath === link.href && (
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl bg-slate-900/70 border border-cyan-500/20 shadow-[0_10px_24px_rgba(15,23,42,0.9)]"
+                    // 'layoutId' es lo que le dice a framer-motion que es
+                    // el "mismo" elemento que se está moviendo.
+                    layoutId="navbar-pill"
+                    transition={{
+                      type: "spring", // Una animación elástica
+                      stiffness: 300,
+                      damping: 25,
+                    }}
+                  />
+                )}
               </li>
             );
           })}
         </ul>
       </div>
 
-      {/* Menú móvil */}
+      {/* Menú móvil (Sin cambios) */}
       {isOpen && (
         <div className="sm:hidden border-t border-cyan-500/10 bg-slate-950/98 relative z-20">
           <ul className="flex flex-col px-3 py-3 gap-2 text-sm">
