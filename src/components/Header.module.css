@@ -12,7 +12,7 @@
     opacity: 0.5;
   }
   100% {
-    transform: translateY(115%);
+    transform: translateY(90px);
     opacity: 0;
   }
 }
@@ -20,7 +20,7 @@
 /* 👇 nombre EXACTO: .matrix-column */
 .matrix-column {
   position: absolute;
-  top: -100%;
+  top: 0;
   width: 18px;
   font-size: 10px;
   line-height: 1.05;

@@ -5,7 +5,7 @@ import { MatrixBackground } from "./MatrixBackground";
 
 export default function SiteHeader() {
   return (
-    <header className="relative z-30 overflow-hidden bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)] border-b border-cyan-500/10">
+    <header className="relative z-30 overflow-visible bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)] border-b border-cyan-500/10">
       {/* ===== Fondo Matrix ===== */}
       <MatrixBackground />
 

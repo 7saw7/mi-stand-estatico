@@ -1,4 +1,3 @@
-// src/app/components/MatrixBackground.tsx
 "use client";
 
 import { memo } from "react";
@@ -16,11 +15,18 @@ const COLUMNS = Array.from({ length: COLUMN_COUNT }).map((_, i) => ({
 
 function MatrixBackgroundBase() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0">
+    <div
+      className="
+        absolute inset-0   /* 👈 ocupa EXACTAMENTE la altura del header */
+        pointer-events-none
+        overflow-hidden    /* 👈 evita caer más allá */
+        z-0
+      "
+    >
       {COLUMNS.map((col) => (
         <div
           key={col.id}
-          className={styles["matrix-column"]} // 👈 IMPORTANTE: mismo nombre que en el CSS
+          className={styles["matrix-column"]}
           style={{
             left: `${col.left}%`,
             animationDuration: `${col.duration}s`,
