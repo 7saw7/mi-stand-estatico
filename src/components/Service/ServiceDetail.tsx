@@ -29,10 +29,31 @@ const themeColors = {
   },
 } satisfies Record<string, { glow1: string; glow2: string; line1: string; line2: string }>;
 
+type ThemeKey = keyof typeof themeColors;
+
+// “extendemos” ServiceConfig solo localmente con una prop opcional theme
+type ThemedServiceConfig = ServiceConfig & {
+  theme?: ThemeKey;
+};
+
+function resolveThemeKey(service: ServiceConfig): ThemeKey {
+  const maybeThemed = service as ThemedServiceConfig;
+
+  if (maybeThemed.theme && maybeThemed.theme in themeColors) {
+    return maybeThemed.theme;
+  }
+
+  // fallback por categoría
+  if (service.categoryId === "apps") return "apps";
+  if (service.categoryId === "ux") return "branding";
+
+  return "web";
+}
+
 export default function ServiceDetail({ service }: Props) {
-  // theme dinámico según el servicio (fallback: "web")
-  const themeKey = (service as any).theme ?? "web";
-  const colors = themeColors[themeKey as keyof typeof themeColors];
+  const themeKey = resolveThemeKey(service);
+  const colors = themeColors[themeKey];
+
 
   return (
     <div
