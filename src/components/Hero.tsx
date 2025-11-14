@@ -11,13 +11,13 @@ import { SiLighthouse } from "react-icons/si";
 
 const Hero: React.FC = () => {
   return (
-    <section
-      className={[
-        "hero-section",
-        "relative overflow-hidden text-white",
-        "bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)]",
-      ].join(" ")}
-    >
+      <section
+        className={[
+          "hero-section",
+          "relative z-0 overflow-hidden text-white",
+          "bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)]",
+        ].join(" ")}
+      >
       {/* ===== BG IMAGE ===== */}
       <div
         aria-hidden

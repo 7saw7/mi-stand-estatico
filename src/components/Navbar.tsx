@@ -25,23 +25,33 @@ function itemIsActive(item: NavTopItem, pathname: string | null): boolean {
 
 const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileOpenSection, setMobileOpenSection] = useState<string | null>(
+    null
+  ); // 👈 acordeón móvil
+
   const pathname = usePathname();
   const currentPath = pathname || "/";
   const isDark = variant === "dark";
 
   const [hoveredPath, setHoveredPath] = useState<string | null>(currentPath);
 
-  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const toggleMenu = () => {
+    setIsOpen((prev) => {
+      const next = !prev;
+      if (!next) setMobileOpenSection(null); // al cerrar, colapsar todo
+      return next;
+    });
+  };
 
   const baseClasses =
-    "sticky top-0 z-40 w-full backdrop-blur-xl transition-all duration-300 overflow-visible";
+    "sticky top-0 z-[999] w-full backdrop-blur-xl transition-all duration-300 overflow-visible";
   const themeClasses = isDark
     ? "text-slate-50 bg-transparent border-0"
     : "bg-transparent text-slate-900";
 
   return (
     <nav className={`${baseClasses} ${themeClasses}`}>
-      <div className="relative z-10 mx-auto flex max-w-6xl items-center justify-between gap-4 px-3 py-2 sm:px-4 sm:py-3">
+      <div className="relative z-25 mx-auto flex max-w-6xl items-center justify-between gap-4 px-3 py-2 sm:px-4 sm:py-3">
         {/* Logo + Nombre */}
         <Link href="/" className="group flex items-center gap-3">
           <div
@@ -117,7 +127,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
                 <Link
                   href={item.href}
                   className={[
-                    "group relative z-10 inline-flex items-center gap-1.5 px-4 py-2 transition-colors duration-250",
+                    "group relative z-50 inline-flex items-center gap-1.5 px-4 py-2 transition-colors duration-250",
                     active || hovered ? "text-cyan-300" : "text-slate-100",
                   ].join(" ")}
                 >
@@ -208,7 +218,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
       </div>
 
       {/* ======================== */}
-      {/* Menú móvil               */}
+      {/* Menú móvil (acordeón)   */}
       {/* ======================== */}
       {isOpen && (
         <div className="relative z-20 bg-slate-950/98 border-t border-cyan-500/10 sm:hidden">
@@ -216,12 +226,25 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
             {NAV.map((item) => {
               const hasGroups = "groups" in item && item.groups;
               const active = itemIsActive(item, pathname);
+              const isSectionOpen = mobileOpenSection === item.href;
 
               return (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      if (hasGroups) {
+                        // acordeón: abrir/cerrar sección, sin navegar
+                        e.preventDefault();
+                        setMobileOpenSection((prev) =>
+                          prev === item.href ? null : item.href
+                        );
+                      } else {
+                        // item sin submenú navega y cierra todo
+                        setIsOpen(false);
+                        setMobileOpenSection(null);
+                      }
+                    }}
                     className={[
                       "group relative flex items-center justify-between rounded-2xl border px-3 py-2",
                       "bg-slate-900/80 border-cyan-500/25 shadow-[0_8px_20px_rgba(15,23,42,0.95)] transition-all active:scale-[0.98]",
@@ -231,20 +254,35 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
                     ].join(" ")}
                   >
                     <span>{item.label}</span>
-                    <span className="text-[9px] text-cyan-300 group-hover:translate-x-0.5 transition-transform">
-                      ▸
-                    </span>
+
+                    {hasGroups ? (
+                      <span
+                        className={[
+                          "text-[9px] text-cyan-300 transition-transform",
+                          isSectionOpen ? "rotate-90" : "",
+                        ].join(" ")}
+                      >
+                        ▸
+                      </span>
+                    ) : (
+                      <span className="text-[9px] text-cyan-300 group-hover:translate-x-0.5 transition-transform">
+                        ▸
+                      </span>
+                    )}
                   </Link>
 
-                  {/* Subopciones anidadas en móvil */}
-                  {hasGroups && (
+                  {/* Subopciones anidadas en móvil: solo si está abierto */}
+                  {hasGroups && isSectionOpen && (
                     <div className="mt-1 ml-3 space-y-1 border-l border-cyan-500/20 pl-3">
                       {item.groups!.flatMap((group) =>
                         group.items.map((leaf) => (
                           <Link
                             key={leaf.href}
                             href={leaf.href}
-                            onClick={() => setIsOpen(false)}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setMobileOpenSection(null);
+                            }}
                             className="block rounded-lg px-2 py-1 text-[12px] text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-200"
                           >
                             {leaf.label}
