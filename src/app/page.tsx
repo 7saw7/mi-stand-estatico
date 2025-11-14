@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import ServiceCard from "@/components/Main/ServiceCard";
-import ServiceSlider from "@/components/Slider/ServiceSlider";
+import Header from "src/components/Header";
+import Footer from "src/components/Footer";
+import Hero from "src/components/Hero";
+import ServiceCard from "src/components/Main/ServiceCard";
+import ServiceSlider from "src/components/Slider/ServiceSlider";
 
 const Home: React.FC = () => {
   const articles = [

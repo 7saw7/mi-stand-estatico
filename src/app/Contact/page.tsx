@@ -1,4 +1,4 @@
-import ContactLabel from "@/components/Contact/ContactLabel";
+import ContactLabel from "src/components/Contact/ContactLabel";
 
 export default function ContactPage() {
   return (

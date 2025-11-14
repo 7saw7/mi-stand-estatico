@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import MainTitle from '@/components/Service/MainTitle';
-import SectionDescription from '@/components/Service/SectionDescription';
-import ServiceCard from '@/components/Service/ServiceCard';
-import Modal from "@/components/Service/Modal";
+import MainTitle from 'src/components/Service/MainTitle';
+import SectionDescription from 'src/components/Service/SectionDescription';
+import ServiceCard from 'src/components/Service/ServiceCard';
+import Modal from "src/components/Service/Modal";
 
 export default function ServicesPage() {
   const [modalOpen, setModalOpen] = useState(false);
