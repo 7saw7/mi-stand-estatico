@@ -1,4 +1,8 @@
+// src/components/Service/Modal.tsx
+"use client";
+
 import { ReactNode, useEffect } from "react";
+import { X } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -7,35 +11,77 @@ interface ModalProps {
 }
 
 export default function Modal({ isOpen, onClose, children }: ModalProps) {
-  // Cerrar con clic fuera
+  // ESC + bloqueo de scroll
   useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
     function handleEscape(event: KeyboardEvent) {
       if (event.key === "Escape") onClose();
     }
+
     document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [onClose]);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen, onClose]); // 👈 siempre 2 dependencias, tamaño fijo
 
   if (!isOpen) return null;
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50"
-      onClick={onClose} // clic fuera
+      className="
+        fixed inset-0 z-50
+        flex items-center justify-center
+        px-4 sm:px-6
+      "
     >
+      {/* Backdrop clicable */}
       <div
-        className="bg-white rounded-lg p-6 shadow-lg relative max-w-lg w-full"
-        onClick={(e) => e.stopPropagation()} // evitar que cierre si se hace clic dentro
+        className="
+          absolute inset-0 h-full w-full
+          bg-slate-950/70
+          backdrop-blur-sm
+          cursor-pointer
+        "
+        onClick={onClose}
+      />
+
+      {/* Panel principal ancho */}
+      <div
+        className="
+          relative w-full
+          max-w-5xl lg:max-w-6xl
+          max-h-[min(90vh,900px)]
+          overflow-y-auto
+          rounded-[2.1rem]
+        "
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Botón de cerrar */}
         <button
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+          type="button"
           onClick={onClose}
+          className="
+            absolute right-4 top-4 z-20
+            flex h-9 w-9 items-center justify-center
+            rounded-full border border-slate-700/70
+            bg-slate-900/80 text-slate-300
+            shadow-lg shadow-slate-900/80
+            hover:text-emerald-300 hover:border-emerald-400
+            transition
+          "
+          aria-label="Cerrar"
         >
-          ✕
+          <X className="h-4 w-4" />
         </button>
 
-        {/* Contenido del modal */}
         {children}
       </div>
     </div>
