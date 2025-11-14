@@ -209,7 +209,11 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className={`${socialBase} ${socialColors}`}
+                  className={`
+                    ${socialBase}
+                    border-emerald-400/40 text-emerald-300
+                    sm:${socialColors}
+                  `}
                 >
                   <FaFacebookF className="text-sm" />
                 </a>
@@ -218,7 +222,11 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter"
-                  className={`${socialBase} ${socialColors}`}
+                  className={`
+                  ${socialBase}
+                  border-emerald-400/40 text-emerald-300
+                  sm:${socialColors}
+                `}
                 >
                   <FaTwitter className="text-sm" />
                 </a>
@@ -227,7 +235,11 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className={`${socialBase} ${socialColors}`}
+                  className={`
+                  ${socialBase}
+                  border-emerald-400/40 text-emerald-300
+                  sm:${socialColors}
+                `}
                 >
                   <FaInstagram className="text-sm" />
                 </a>
@@ -236,7 +248,11 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className={`${socialBase} ${socialColors}`}
+                  className={`
+                  ${socialBase}
+                  border-emerald-400/40 text-emerald-300
+                  sm:${socialColors}
+                `}
                 >
                   <FaLinkedinIn className="text-sm" />
                 </a>
