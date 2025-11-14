@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Nombre del servicio | Codeva Studio",
@@ -36,18 +37,18 @@ export default function ServicePage() {
 
         {/* CTA */}
         <div className="mt-6 flex gap-4">
-          <a
+          <Link
             href="/#contacto"
             className="rounded-full bg-emerald-500 px-6 py-2.5 font-semibold text-slate-900 shadow-lg shadow-emerald-500/30 hover:bg-emerald-400 transition"
           >
             Solicitar propuesta
-          </a>
-          <a
+          </Link>
+          <Link
             href="/proyectos"
             className="rounded-full border border-emerald-400/40 px-6 py-2.5 text-slate-200 hover:border-emerald-300 hover:bg-emerald-400/5 transition"
           >
             Ver proyectos
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import { ReactNode } from "react";
+import Link from "next/link";
 
 type PremiumServicePageProps = {
   category: string;
@@ -63,18 +64,19 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
             {extraHero && <div className="mt-5">{extraHero}</div>}
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="/#contacto"
-                className="group inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-[0_18px_45px_rgba(16,185,129,0.6)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-emerald-400"
-              >
-                <span>Agendar llamada</span>
-              </a>
-              <a
-                href="/#servicios"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-300/40 bg-slate-950/40 px-5 py-2.5 text-sm font-medium text-emerald-100/95 shadow-[0_0_0_1px_rgba(15,23,42,0.9)] transition-all duration-200 hover:border-emerald-200 hover:bg-slate-900/90 hover:-translate-y-0.5"
-              >
-                Ver más servicios
-              </a>
+            <Link
+            href="/#contacto"
+            className="group inline-flex items-center justify-center rounded-full ..."
+            >
+            <span>Agendar llamada</span>
+            </Link>
+
+            <Link
+            href="/#servicios"
+            className="inline-flex items-center justify-center rounded-full ..."
+            >
+            Ver más servicios
+            </Link>
             </div>
           </div>
 
@@ -168,12 +170,12 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
                 de sitio, la tecnología y el roadmap ideal para lanzar rápido
                 sin perder calidad.
               </p>
-              <a
-                href="/#contacto"
-                className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-[12px] font-semibold text-slate-900 shadow-[0_14px_35px_rgba(16,185,129,0.6)] transition hover:bg-emerald-100"
-              >
-                Enviar brief del proyecto
-              </a>
+            <Link
+            href="/#contacto"
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-white ..."
+            >
+            Enviar brief del proyecto
+            </Link>
             </div>
           </div>
         </div>

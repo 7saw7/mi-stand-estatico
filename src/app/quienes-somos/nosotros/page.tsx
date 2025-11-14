@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "src/components/Header";
 import Footer from "src/components/Footer";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Nosotros | Codeva Studio",
@@ -105,12 +106,12 @@ export default function NosotrosPage() {
                 proyecto. Te proponemos una llamada corta para ver si tiene
                 sentido trabajar juntos.
               </p>
-              <a
+              <Link
                 href="/#contacto"
                 className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-[12px] font-semibold text-slate-900 shadow-[0_14px_35px_rgba(16,185,129,0.6)] transition hover:bg-emerald-100"
               >
                 Agendar una llamada
-              </a>
+              </Link>
             </div>
           </div>
         </div>
