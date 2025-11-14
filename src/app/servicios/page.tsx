@@ -103,12 +103,12 @@ export default function ServicePage() {
           cotización personalizada.
         </p>
 
-        <a
+        <Link
           href="/#contacto"
           className="mt-6 inline-block rounded-full bg-white px-7 py-3 font-semibold text-slate-900 shadow-lg shadow-emerald-500/30 hover:bg-emerald-200 transition"
         >
           Agendar llamada
-        </a>
+        </Link>
       </div>
     </section>
   );
