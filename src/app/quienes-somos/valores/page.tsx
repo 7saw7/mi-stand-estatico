@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "src/components/Header";
 import Footer from "src/components/Footer";
+import Link from "next/link";
 import type { IconType } from "react-icons";
 import {
   FiEye,
@@ -125,12 +126,12 @@ export default function ValoresPage() {
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
               <span>
                 Estos valores también se aplican a tu proyecto.{" "}
-                <a
+                <Link
                   href="/#contacto"
                   className="font-semibold text-emerald-300 hover:text-emerald-200"
                 >
                   Hablemos.
-                </a>
+                </Link>
               </span>
             </div>
           </div>

@@ -5,7 +5,6 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaArrowRight,
 } from "react-icons/fa";
 
 type FooterProps = {
