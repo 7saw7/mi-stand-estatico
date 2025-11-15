@@ -54,28 +54,34 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                 </p>
               </div>
 
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-4">
 
                 {/* Botón principal: Agendar llamada */}
                 <Link
                   href="/#contacto"
                   className="
                     group relative inline-flex items-center gap-2
-                    rounded-full px-7 py-3
-                    text-[15px] font-semibold tracking-tight
+                    rounded-full
+                    px-4 py-2 text-[13px]  /* móvil */
+                    md:px-7 md:py-3 md:text-[15px]  /* desktop */
+
+                    font-semibold tracking-tight
                     text-slate-950
                     bg-white
-                    shadow-[0_12px_32px_rgba(16,185,129,0.35)]
+                    shadow-[0_8px_22px_rgba(16,185,129,0.30)]
+                    md:shadow-[0_12px_32px_rgba(16,185,129,0.35)]
+                    
                     transition-all duration-300
-                    hover:-translate-y-[3px]
-                    hover:shadow-[0_18px_38px_rgba(16,185,129,0.45)]
+                    hover:-translate-y-[2px] md:hover:-translate-y-[3px]
+                    hover:shadow-[0_12px_28px_rgba(16,185,129,0.42)]
+                    md:hover:shadow-[0_18px_38px_rgba(16,185,129,0.45)]
+                    
                     active:translate-y-[1px]
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70
                   "
                 >
                   <span>Agendar llamada</span>
 
-                  {/* Icono premium */}
                   <svg
                     className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
@@ -83,11 +89,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                     strokeWidth="2.4"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 12h14M13 6l6 6-6 6"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </Link>
 
@@ -96,24 +98,31 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                   href="/#servicios"
                   className="
                     group inline-flex items-center gap-2
-                    rounded-full px-6 py-2.5
-                    text-[15px] font-medium tracking-tight
+                    rounded-full
+
+                    px-4 py-1.5 text-[13px]        /* móvil */
+                    md:px-6 md:py-2.5 md:text-[15px]  /* desktop */
+
+                    font-medium tracking-tight
                     border border-slate-600/70
                     bg-slate-950/60
                     text-emerald-200/90
                     shadow-[0_0_0_1px_rgba(15,23,42,0.9)]
                     transition-all duration-300
+
                     hover:border-emerald-300/80
                     hover:text-emerald-100
                     hover:bg-slate-900/90
-                    hover:-translate-y-[3px]
+
+                    hover:-translate-y-[2px]   /* móvil */
+                    md:hover:-translate-y-[3px]  /* desktop */
+                    
                     active:translate-y-[1px]
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70
                   "
                 >
                   <span>Ver servicios</span>
 
-                  {/* Icono neon sutil */}
                   <svg
                     className="h-4 w-4 text-emerald-300 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
@@ -121,11 +130,7 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
                     strokeWidth="2.1"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 12h14M13 6l6 6-6 6"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
                 </Link>
 

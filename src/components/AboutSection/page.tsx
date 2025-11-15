@@ -102,57 +102,6 @@ export default function AboutSection() {
           </div>
         </motion.div>
 
-        {/* MANIFIESTO EN 3 BLOQUES */}
-        <motion.div
-          className="mt-12 grid gap-6 md:grid-cols-3 "
-          variants={fadeUpSoft}
-          transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
-        >
-          {[
-            {
-              title: "Lo que creemos",
-              text: "La tecnología tiene sentido cuando hace la vida más simple y los negocios más claros. Apostamos por soluciones que aportan valor real, no por features vacías.",
-              border: "border-emerald-500/35",
-              bg: "bg-emerald-500/10",
-              shadow: "shadow-[0_18px_60px_rgba(16,185,129,0.35)]",
-            },
-            {
-              title: "Cómo trabajamos",
-              text: "Colaboramos contigo desde el día uno: entendemos el contexto, prototipamos rápido, validamos pronto y construimos con foco en rendimiento, escalabilidad y experiencia de usuario.",
-              border: "border-sky-500/35",
-              bg: "bg-sky-500/10",
-              shadow: "shadow-[0_18px_60px_rgba(56,189,248,0.35)]",
-            },
-            {
-              title: "Lo que nos mueve",
-              text: "Nos motiva ver cómo un buen producto digital desbloquea nuevas oportunidades: más ventas, mejores procesos y equipos que trabajan con claridad y confianza.",
-              border: "border-indigo-500/35",
-              bg: "bg-indigo-500/10",
-              shadow: "shadow-[0_18px_60px_rgba(79,70,229,0.40)]",
-            },
-          ].map((card) => (
-            <motion.article
-              key={card.title}
-              whileHover={{ y: -6, rotateX: 2, rotateY: -2 }}
-              transition={{ type: "spring", stiffness: 200, damping: 16 }}
-              className={`group relative overflow-hidden rounded-3xl border border-black/5 ${card.bg} px-6 py-7 text-slate-50 ${card.shadow} will-change-transform`}
-            >
-              {/* grid y glow en hover */}
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_55%)]" />
-                <div className="absolute inset-0 opacity-70 bg-[linear-gradient(120deg,rgba(248,250,252,0.35)_1px,transparent_1px),linear-gradient(210deg,rgba(15,23,42,0.95)_1px,transparent_1px)] bg-[length:26px_26px]" />
-              </div>
-
-              <h3 className="relative text-xl font-semibold text-neutral-900">
-                {card.title}
-              </h3>
-              <p className="relative mt-3 text-sm text-neutral-800">
-                {card.text}
-              </p>
-            </motion.article>
-          ))}
-        </motion.div>
-
         {/* ENFOQUE / DIFERENCIALES + TIMELINE */}
         <motion.div
           className="mt-14 grid gap-8 lg:grid-cols-[1.4fr_minmax(0,1fr)] lg:items-start"
