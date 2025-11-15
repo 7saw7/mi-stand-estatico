@@ -16,6 +16,7 @@ export default function UxUiService() {
       description="Diseñamos experiencias y interfaces centradas en el usuario y en el contexto de tu negocio: flujos claros, jerarquía visual cuidada y componentes listos para que desarrollo pueda implementar sin fricción."
       imageSrc="/media/services/ux-ui.jpg"
       imageAlt="Interfaz de usuario y experiencia de usuario para producto digital"
+      theme= "branding"
       benefits={[
         "Análisis de casos de uso y definición de flujos clave.",
         "Arquitectura de información y layout pensados para claridad.",

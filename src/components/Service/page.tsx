@@ -46,24 +46,28 @@ export default function ServicesPage() {
         <main
           className={`relative min-h-screen overflow-hidden text-white px-6 py-16 ${styles.servicesSection}`}
         >
-          {/* ==== BACKGROUND ULTRA MEGA PRO ==== */}
-          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-            {/* auroras animadas */}
-            <div className={styles.auroraPrimary} />
-            <div className={styles.auroraSecondary} />
+        {/* ==== BACKGROUND ULTRA MEGA PRO (CON OVERLAY) ==== */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          {/* overlay para bajar brillo global */}
+          <div className="absolute inset-0 bg-black/45" />
 
-            {/* haz de luz diagonal */}
-            <div className={styles.diagonalBeam} />
+          {/* auroras animadas */}
+          <div className={styles.auroraPrimary} />
+          <div className={styles.auroraSecondary} />
 
-            {/* grid tech con máscara */}
-            <div className={`${styles.servicesGrid} opacity-[0.22]`} />
+          {/* haz de luz diagonal, un poco más suave */}
+          <div className={styles.diagonalBeam} />
 
-            {/* orbits suaves detrás de las cards */}
-            <div className={styles.orbits} />
+          {/* grid tech con máscara, menos intensa */}
+          <div className={`${styles.servicesGrid} opacity-[0.12]`} />
 
-            {/* textura tipo noise muy sutil */}
-            <div className={styles.noise} />
-          </div>
+          {/* orbits suaves detrás de las cards, menos brillo */}
+          <div className={styles.orbits} />
+
+          {/* textura tipo noise muy sutil */}
+          <div className={styles.noise} />
+        </div>
+
 
         <section className="relative mx-auto max-w-6xl">
           <MainTitle text="Nuestros servicios" variant="dark" />

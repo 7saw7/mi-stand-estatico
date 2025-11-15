@@ -1,44 +1,20 @@
-/* Fondo base de la sección: degrade profundo + toque esmeralda */
+/* Fondo base: igual */
 .servicesSection {
   background:
     radial-gradient(120% 160% at 0% 0%, #022c22 0, #020617 40%, #020617 100%);
   position: relative;
 }
 
-/* ---------- AURORAS ANIMADAS ---------- */
-
-@keyframes services-aurora-move {
-  0% {
-    transform: translate3d(-8%, -6%, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(10%, 4%, 0) scale(1.08);
-  }
-  100% {
-    transform: translate3d(-8%, -6%, 0) scale(1);
-  }
-}
-
-@keyframes services-aurora-secondary {
-  0% {
-    transform: translate3d(18%, 6%, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(-6%, -4%, 0) scale(1.05);
-  }
-  100% {
-    transform: translate3d(18%, 6%, 0) scale(1);
-  }
-}
+/* ---------- AURORAS AJUSTADAS ---------- */
 
 .auroraPrimary {
   position: absolute;
   inset: -30% -10%;
   background:
-    radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.5), transparent 55%),
-    radial-gradient(circle at 35% 10%, rgba(56, 189, 248, 0.45), transparent 60%);
+    radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.38), transparent 55%),
+    radial-gradient(circle at 35% 10%, rgba(56, 189, 248, 0.32), transparent 60%);
   filter: blur(36px);
-  opacity: 0.9;
+  opacity: 0.55; /* ↓ Antes 0.9 */
   animation: services-aurora-move 18s ease-in-out infinite;
 }
 
@@ -46,15 +22,15 @@
   position: absolute;
   inset: -10% -20%;
   background:
-    radial-gradient(circle at 100% 10%, rgba(59, 130, 246, 0.55), transparent 55%),
-    radial-gradient(circle at 80% 40%, rgba(30, 64, 175, 0.5), transparent 65%);
+    radial-gradient(circle at 100% 10%, rgba(59, 130, 246, 0.40), transparent 55%),
+    radial-gradient(circle at 80% 40%, rgba(30, 64, 175, 0.35), transparent 65%);
   filter: blur(44px);
-  opacity: 0.75;
+  opacity: 0.45; /* ↓ Antes 0.75 */
   mix-blend-mode: screen;
   animation: services-aurora-secondary 22s ease-in-out infinite;
 }
 
-/* ---------- HAZ DIAGONAL ---------- */
+/* ---------- HAZ DIAGONAL (MUCHO MÁS SUAVE) ---------- */
 
 .diagonalBeam {
   position: absolute;
@@ -62,11 +38,11 @@
   background: linear-gradient(
     135deg,
     transparent 0%,
-    rgba(148, 163, 184, 0.05) 35%,
-    rgba(45, 212, 191, 0.16) 55%,
+    rgba(148, 163, 184, 0.03) 35%,
+    rgba(45, 212, 191, 0.08) 55%,
     transparent 75%
   );
-  opacity: 0.9;
+  opacity: 0.35; /* ↓ Antes 0.9 */
   mix-blend-mode: screen;
 }
 
@@ -78,12 +54,12 @@
   background-image:
     linear-gradient(
       to right,
-      rgba(148, 163, 184, 0.16) 1px,
+      rgba(148, 163, 184, 0.10) 1px, /* ↓ Antes 0.16 */
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      rgba(148, 163, 184, 0.16) 1px,
+      rgba(148, 163, 184, 0.10) 1px, /* ↓ Antes 0.16 */
       transparent 1px
     );
   background-size: 80px 80px;
@@ -92,40 +68,40 @@
   mix-blend-mode: soft-light;
 }
 
-/* ---------- ORBITS DETRÁS DE LAS CARDS ---------- */
+/* ---------- ORBITS DETRÁS (MUCHO MENOS INTENSAS) ---------- */
 
 .orbits {
   position: absolute;
   inset: 10% 6% 0;
   background-image:
-    radial-gradient(circle at 20% 40%, rgba(34, 197, 94, 0.14), transparent 55%),
-    radial-gradient(circle at 60% 60%, rgba(56, 189, 248, 0.18), transparent 60%),
-    radial-gradient(circle at 90% 35%, rgba(244, 114, 182, 0.12), transparent 55%);
-  opacity: 0.9;
-  filter: blur(40px);
+    radial-gradient(circle at 20% 40%, rgba(34, 197, 94, 0.10), transparent 55%),
+    radial-gradient(circle at 60% 60%, rgba(56, 189, 248, 0.12), transparent 60%),
+    radial-gradient(circle at 90% 35%, rgba(244, 114, 182, 0.10), transparent 55%);
+  opacity: 0.45; /* ↓ Antes 0.9 */
+  filter: blur(32px); /* ↓ Antes 40px */
   mix-blend-mode: screen;
 }
 
-/* ---------- NOISE SUAVE ---------- */
+/* ---------- NOISE (MUY SUAVE) ---------- */
 
 .noise {
   position: absolute;
   inset: 0;
-  opacity: 0.22;
+  opacity: 0.12; /* ↓ Antes 0.22 */
   pointer-events: none;
   mix-blend-mode: soft-light;
   background-image:
     repeating-linear-gradient(
       0deg,
-      rgba(15, 23, 42, 0.8) 0,
-      rgba(15, 23, 42, 0.8) 1px,
+      rgba(15, 23, 42, 0.5) 0,
+      rgba(15, 23, 42, 0.5) 1px,
       rgba(15, 23, 42, 0) 1px,
       rgba(15, 23, 42, 0) 2px
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(15, 23, 42, 0.7) 0,
-      rgba(15, 23, 42, 0.7) 1px,
+      rgba(15, 23, 42, 0.5) 0,
+      rgba(15, 23, 42, 0.5) 1px,
       rgba(15, 23, 42, 0) 1px,
       rgba(15, 23, 42, 0) 3px
     );

@@ -56,50 +56,82 @@ const Footer: React.FC<FooterProps> = ({ variant = "dark" }) => {
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                {/* Botón principal: Agenda una llamada */}
+
+                {/* Botón principal: Agendar llamada */}
                 <Link
                   href="/#contacto"
                   className="
-                    group relative inline-flex items-center justify-center gap-2
-                    rounded-full px-6 py-2.5
-                    text-sm font-semibold text-slate-950
+                    group relative inline-flex items-center gap-2
+                    rounded-full px-7 py-3
+                    text-[15px] font-semibold tracking-tight
+                    text-slate-950
                     bg-white
-                    shadow-[0_18px_45px_rgba(16,185,129,0.6)]
-                    transition-transform duration-200
-                    hover:-translate-y-0.5
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/80
+                    shadow-[0_12px_32px_rgba(16,185,129,0.35)]
+                    transition-all duration-300
+                    hover:-translate-y-[3px]
+                    hover:shadow-[0_18px_38px_rgba(16,185,129,0.45)]
+                    active:translate-y-[1px]
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70
                   "
                 >
-                  <button className="flex items-center justify-center">
-                    <span>Agendar llamada</span>
-                  </button>
-                  <FaArrowRight className="text-xs transition-transform duration-200 group-hover:translate-x-0.5" />
+                  <span>Agendar llamada</span>
+
+                  {/* Icono premium */}
+                  <svg
+                    className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M13 6l6 6-6 6"
+                    />
+                  </svg>
                 </Link>
 
                 {/* Botón secundario: Ver servicios */}
-                <button className="flex items-center justify-center">                
                 <Link
                   href="/#servicios"
                   className="
-                    inline-flex items-center justify-center
-                    rounded-full px-5 py-2.5
-                    text-sm font-medium
-                    border border-slate-500/60
+                    group inline-flex items-center gap-2
+                    rounded-full px-6 py-2.5
+                    text-[15px] font-medium tracking-tight
+                    border border-slate-600/70
                     bg-slate-950/60
                     text-emerald-200/90
                     shadow-[0_0_0_1px_rgba(15,23,42,0.9)]
-                    transition-all duration-200
-                    hover:border-emerald-300/85
+                    transition-all duration-300
+                    hover:border-emerald-300/80
                     hover:text-emerald-100
                     hover:bg-slate-900/90
-                    hover:-translate-y-0.5
-                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/80
+                    hover:-translate-y-[3px]
+                    active:translate-y-[1px]
+                    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400/70
                   "
                 >
-                  Ver servicios
+                  <span>Ver servicios</span>
+
+                  {/* Icono neon sutil */}
+                  <svg
+                    className="h-4 w-4 text-emerald-300 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.1"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 12h14M13 6l6 6-6 6"
+                    />
+                  </svg>
                 </Link>
-                </button>
+
               </div>
+
             </div>
           </div>
         </div>

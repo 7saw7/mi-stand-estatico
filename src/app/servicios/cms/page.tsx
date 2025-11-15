@@ -16,6 +16,7 @@ export default function CmsService() {
       description="Diseñamos e implementamos CMS modernos —tradicionales o headless— para que tu equipo pueda gestionar contenido sin pelearse con la herramienta."
       imageSrc="/media/services/cms-medida.jpg"
       imageAlt="Gestor de contenidos moderno"
+      theme="web"  
       benefits={[
         "Selección de tecnología CMS adecuada a tu caso.",
         "Modelado de contenidos flexible y escalable.",

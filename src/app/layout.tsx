@@ -37,7 +37,7 @@ export default function RootLayout({
       className={`${inter.variable} ${roboto_mono.variable} ${poppins.variable}`}
     >
       <body>
-        <div className="font-sans transition-all duration-500 min-h-screen flex flex-col bg-[var(--color-azul-oscuro)]">
+        <div className="font-sans transition-all duration-500 min-h-screen flex flex-col">
           {/* Contenido principal */}
           <main className="flex-grow">{children}</main>
 

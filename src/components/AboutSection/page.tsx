@@ -10,7 +10,7 @@ const fadeUp = {
 
 const fadeUpSoft = {
   hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0 },
+  visible: { opacity: 50, y: 50 },
 };
 
 export default function AboutSection() {
@@ -27,7 +27,7 @@ export default function AboutSection() {
 
       {/* --- 1. Nebulosa volumétrica con aurora dinámica --- */}
       <div className="absolute inset-0">
-        <div className="absolute -inset-[55%] animate-aurora-3d opacity-[0.45]"
+        <div className="absolute -inset-[55%] animate-aurora-3d opacity-[0.28]"
           style={{
             background:
               "radial-gradient(circle at 30% 20%, rgba(0,255,180,0.35), transparent 60%), \
@@ -38,7 +38,7 @@ export default function AboutSection() {
       </div>
 
       {/* --- 2. Light-flow dinámico (río de luz) --- */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.25]">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.15]">
         <div className="absolute top-0 left-[-40%] w-[200%] h-[200%] animate-lightflow"
           style={{
             background:
@@ -50,20 +50,22 @@ export default function AboutSection() {
 
       {/* --- 3. Grid futurista (pero sutil y elegante) --- */}
       <div
-        className="absolute inset-0 opacity-[0.12] mix-blend-soft-light"
+        className="absolute inset-0 opacity-[0.06] mix-blend-soft-light"
         style={{
           background:
-            "linear-gradient(120deg, rgba(255,255,255,0.22) 1px, transparent 1px), \
-            linear-gradient(210deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            "linear-gradient(120deg, rgba(255,255,255,0.12) 1px, transparent 1px), \
+            linear-gradient(210deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
 
       {/* --- 4. Noise procedural (para dar textura realista) --- */}
-      <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0,transparent_60%)]" />
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0,transparent_60%)]" />
+
 
       {/* --- 5. Glow radial cinematográfico --- */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(10,15,28,0)_0%,rgba(10,15,28,0.85)_70%,rgba(10,15,28,1)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(3,21,16,0)_0%,rgba(3,21,16,0.6)_70%,rgba(3,21,16,0.85)_100%)]" />
+
     </div>
 
       <div className="container-x">
@@ -102,7 +104,7 @@ export default function AboutSection() {
 
         {/* MANIFIESTO EN 3 BLOQUES */}
         <motion.div
-          className="mt-12 grid gap-6 md:grid-cols-3"
+          className="mt-12 grid gap-6 md:grid-cols-3 "
           variants={fadeUpSoft}
           transition={{ delay: 0.15, duration: 0.6, ease: "easeOut" }}
         >
@@ -133,7 +135,7 @@ export default function AboutSection() {
               key={card.title}
               whileHover={{ y: -6, rotateX: 2, rotateY: -2 }}
               transition={{ type: "spring", stiffness: 200, damping: 16 }}
-              className={`group relative overflow-hidden rounded-3xl ${card.border} ${card.bg} px-6 py-7 text-slate-50 ${card.shadow} will-change-transform`}
+              className={`group relative overflow-hidden rounded-3xl border border-black/5 ${card.bg} px-6 py-7 text-slate-50 ${card.shadow} will-change-transform`}
             >
               {/* grid y glow en hover */}
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -141,8 +143,10 @@ export default function AboutSection() {
                 <div className="absolute inset-0 opacity-70 bg-[linear-gradient(120deg,rgba(248,250,252,0.35)_1px,transparent_1px),linear-gradient(210deg,rgba(15,23,42,0.95)_1px,transparent_1px)] bg-[length:26px_26px]" />
               </div>
 
-              <h3 className="relative text-xl font-semibold">{card.title}</h3>
-              <p className="relative mt-3 text-sm text-slate-100/95">
+              <h3 className="relative text-xl font-semibold text-neutral-900">
+                {card.title}
+              </h3>
+              <p className="relative mt-3 text-sm text-neutral-800">
                 {card.text}
               </p>
             </motion.article>
@@ -158,7 +162,7 @@ export default function AboutSection() {
           {/* ENFOQUE */}
           <div className="relative overflow-hidden rounded-3xl border border-slate-700/70 bg-slate-950/90 px-6 py-7 shadow-[0_24px_80px_rgba(15,23,42,0.95)]">
             <div aria-hidden className="pointer-events-none absolute inset-0 opacity-60">
-              <div className="absolute -top-32 -left-4 h-40 w-40 rounded-full bg-emerald-400/15 blur-3xl" />
+              <div className="absolute -top-32 -left-4 h-40 w-40 rounded-full bg-emerald-500/20 blur-3xl" />
               <div className="absolute -bottom-32 right-4 h-40 w-40 rounded-full bg-cyan-400/15 blur-3xl" />
             </div>
             <div className="relative">
@@ -252,7 +256,7 @@ export default function AboutSection() {
           transition={{ delay: 0.35, duration: 0.6, ease: "easeOut" }}
           className="mt-14 flex flex-col items-center gap-4 text-center"
         >
-          <p className="max-w-xl text-sm text-slate-300">
+          <p className="max-w-xl text-sm text-slate-300 text-white/90">
             Si sientes que tu presencia digital ya no refleja el nivel de tu
             negocio, conversemos. Nos encantará diseñar y construir algo que te
             haga sentir orgulloso cada vez que lo abras.

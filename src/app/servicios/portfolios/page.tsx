@@ -16,6 +16,7 @@ export default function PortafoliosService() {
       description="Creamos portafolios digitales con narrativa visual, orden y ritmo para mostrar tu trabajo de forma clara, moderna y memorable."
       imageSrc="/media/services/portfolios.jpg"
       imageAlt="Portfolio digital moderno"
+      theme="web"  
       benefits={[
         "Diseño enfocado en resaltar proyectos y resultados.",
         "Estructura adaptable a distintos tipos de piezas o casos.",

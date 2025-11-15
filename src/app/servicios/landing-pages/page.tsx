@@ -16,6 +16,7 @@ export default function LandingPagesService() {
       description="Creamos landing pages milimétricamente pensadas para campañas, lanzamientos y captación de leads, con foco en storytelling, velocidad y analítica."
       imageSrc="/media/services/landing-pages.jpg"
       imageAlt="Landing pages profesionales Codeva Studio"
+      theme="web"      
       benefits={[
         "Arquitectura de contenidos pensada para conversión.",
         "Diseño visual alineado a tu marca y mensajes clave.",

@@ -16,6 +16,7 @@ export default function ReactNativeService() {
       description="Construimos aplicaciones móviles con React Native que equilibran experiencia de usuario, mantenibilidad y velocidad de desarrollo."
       imageSrc="/media/services/react-native.jpg"
       imageAlt="Aplicación móvil desarrollada en React Native"
+      theme="apps" //
       benefits={[
         "Diseño de arquitectura escalable y mantenible.",
         "Componentes reutilizables y diseño consistente.",

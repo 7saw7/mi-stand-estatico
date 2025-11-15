@@ -16,6 +16,7 @@ export default function EcommerceService() {
       description="Creamos tiendas online que cuidan cada detalle: UX, checkout, performance y automatizaciones para que vender sea más sencillo y medible."
       imageSrc="/media/services/ecommerce.jpg"
       imageAlt="Tienda online y e-commerce"
+      theme="web"  
       benefits={[
         "Arquitectura de catálogo pensada para navegación clara.",
         "Checkout optimizado y reducción de fricción en el pago.",

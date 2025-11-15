@@ -16,6 +16,7 @@ export default function BrandingDigitalService() {
       description="Diseñamos identidades digitales que funcionan en la realidad: web, producto, redes y materiales comerciales. No solo un logo, sino un sistema visual para crecer sin perder coherencia."
       imageSrc="/media/services/branding.jpg"
       imageAlt="Sistema de branding digital para productos y sitios web"
+      theme= "branding"
       benefits={[
         "Definición de tono visual y dirección creativa alineada al negocio.",
         "Construcción de logo o ajuste del existente para uso digital.",

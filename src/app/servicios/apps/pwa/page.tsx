@@ -16,6 +16,7 @@ export default function PwaService() {
       description="Diseñamos y desarrollamos PWAs que combinan lo mejor de la web y el mundo móvil: rápidas, instalables y preparadas para funcionar incluso con mala conexión."
       imageSrc="/media/services/pwa.jpg"
       imageAlt="Progressive web app en dispositivos móviles"
+      theme="apps" //
       benefits={[
         "Experiencia mobile optimizada y full responsive.",
         "Instalable en escritorio y dispositivos móviles.",

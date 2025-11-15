@@ -16,6 +16,7 @@ export default function CorporativosService() {
       description="Diseñamos webs corporativas que comunican con claridad qué haces, por qué eres diferente y cómo trabajas, con un look & feel moderno y profesional."
       imageSrc="/media/services/sitios-corporativos.jpg"
       imageAlt="Sitio corporativo profesional"
+      theme="web"  
       benefits={[
         "Arquitectura de información alineada a tu negocio.",
         "Secciones clave: servicios, equipo, casos de éxito, contacto.",
