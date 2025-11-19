@@ -1,9 +1,8 @@
 // app/layout.tsx
-
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono, Poppins } from "next/font/google";
-
 import "./globals.css";
+import VideoIntroWrapper from "./VideoIntroWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,19 +28,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
-
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="es"
       className={`${inter.variable} ${roboto_mono.variable} ${poppins.variable}`}
     >
+      <head>
+        {/* Mejora 2: preload del video */}
+        <link
+          rel="preload"
+          href="/assets/videos/inicio.mp4"
+          as="video"
+          type="video/mp4"
+        />
+      </head>
       <body>
-        <div className="font-sans transition-all duration-500 min-h-screen flex flex-col">
-          {/* Contenido principal */}
-          <main className="flex-grow">{children}</main>
-
-        </div>
+        <VideoIntroWrapper>{children}</VideoIntroWrapper>
       </body>
     </html>
   );
