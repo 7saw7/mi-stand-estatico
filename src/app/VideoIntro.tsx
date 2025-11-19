@@ -3,8 +3,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
+const MOBILE_BREAKPOINT = 768;
+
+const MOBILE_VIDEO = "/assets/videos/iniciophone.mp4";
+const DESKTOP_VIDEO = "/assets/videos/inicio.mp4"; // cámbialo al que quieras
+
 export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
   const [fadeOut, setFadeOut] = useState(false);
+  const [videoSrc, setVideoSrc] = useState<string>(MOBILE_VIDEO); // asumimos móvil por defecto
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const finishIntro = () => {
@@ -13,27 +19,46 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
   };
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    if (typeof window === "undefined") return;
 
-    // Aseguramos configuración para iOS
-    video.muted = true;
-    video.defaultMuted = true;
-    video.playsInline = true;
-
-    const tryPlay = async () => {
-      try {
-        await video.play();
-        // ✅ Si autoplay se permite, todo ok
-      } catch (err) {
-        // ❌ Si iOS bloquea autoplay:
-        // NO llamamos finishIntro → dejamos el video visible
-        // iOS mostrará el icono de play y el usuario podrá tocar.
-        console.log("Autoplay bloqueado, usuario deberá tocar play", err);
+    const pickSrc = (width: number) => {
+      if (width <= MOBILE_BREAKPOINT) {
+        setVideoSrc(MOBILE_VIDEO);
+      } else {
+        setVideoSrc(DESKTOP_VIDEO);
       }
     };
 
-    void tryPlay();
+    // 👇 Primera detección
+    pickSrc(window.innerWidth);
+
+    // 👇 Escuchar cambios de tamaño (rotación, resize, etc.)
+    const onResize = () => {
+      pickSrc(window.innerWidth);
+    };
+
+    window.addEventListener("resize", onResize);
+
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+
+      const tryPlay = async () => {
+        try {
+          await video.play();
+        } catch (err) {
+          console.log("Autoplay bloqueado, usuario deberá tocar play", err);
+        }
+      };
+
+      void tryPlay();
+    }
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
   }, [onFinish]);
 
   const handleVideoEnd = () => {
@@ -52,6 +77,7 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
       style={{ willChange: "opacity" }}
     >
       <video
+        key={videoSrc} // 👈 fuerza reinicio del video al cambiar de src
         ref={videoRef}
         autoPlay
         muted
@@ -60,7 +86,7 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
         onEnded={handleVideoEnd}
         className="w-full h-full object-cover"
       >
-        <source src="/assets/videos/inicio.mp4" type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
       </video>
     </div>
   );

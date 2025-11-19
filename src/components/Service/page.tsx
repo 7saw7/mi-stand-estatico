@@ -1,12 +1,16 @@
 // src/app/servicios/page.tsx
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, {
+  useState,
+  useRef,
+  useMemo,
+  useCallback,
+} from "react";
+import dynamic from "next/dynamic";
 import MainTitle from "src/components/Service/MainTitle";
 import SectionDescription from "src/components/Service/SectionDescription";
 import ServiceCard from "src/components/Service/ServiceCard";
-import Modal from "src/components/Service/Modal";
-import ServiceDetail from "src/components/Service/ServiceDetail";
 import styles from "./services-bg.module.css";
 
 import {
@@ -15,6 +19,17 @@ import {
   type ServiceConfig,
   type ServiceCategoryId,
 } from "src/app/config/services";
+
+// 🚀 Lazy load: Modal + ServiceDetail no van en el bundle inicial
+const Modal = dynamic(() => import("src/components/Service/Modal"), {
+  ssr: false,
+});
+const ServiceDetail = dynamic(
+  () => import("src/components/Service/ServiceDetail"),
+  {
+    ssr: false,
+  },
+);
 
 export default function ServicesPage() {
   const [selectedService, setSelectedService] =
@@ -25,27 +40,46 @@ export default function ServicesPage() {
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
 
-  const activeCategory =
-    SERVICE_CATEGORIES.find((c) => c.id === activeCategoryId) ??
-    SERVICE_CATEGORIES[0];
+  // ✅ Memo de categoría activa
+  const activeCategory = useMemo(
+    () =>
+      SERVICE_CATEGORIES.find((c) => c.id === activeCategoryId) ??
+      SERVICE_CATEGORIES[0],
+    [activeCategoryId],
+  );
 
-  const services = getServicesByCategory(activeCategoryId);
+  // ✅ Memo de servicios para esa categoría
+  const services = useMemo(
+    () => getServicesByCategory(activeCategoryId),
+    [activeCategoryId],
+  );
 
-  const scrollSlider = (direction: "left" | "right") => {
-    if (!sliderRef.current) return;
+  // ✅ useCallback para que no se recree en cada render
+  const scrollSlider = useCallback((direction: "left" | "right") => {
     const container = sliderRef.current;
+    if (!container) return;
+
     const offset = container.clientWidth * 0.8;
     container.scrollBy({
       left: direction === "left" ? -offset : offset,
       behavior: "smooth",
     });
-  };
+  }, []);
+
+  // ✅ Handler memoizado para abrir modal
+  const handleSelectService = useCallback((service: ServiceConfig) => {
+    setSelectedService(service);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setSelectedService(null);
+  }, []);
 
   return (
     <>
-        <main
-          className={`relative min-h-screen overflow-hidden text-white px-6 py-16 ${styles.servicesSection}`}
-        >
+      <main
+        className={`relative min-h-screen overflow-hidden text-white px-6 py-16 ${styles.servicesSection}`}
+      >
         {/* ==== BACKGROUND ULTRA MEGA PRO (CON OVERLAY) ==== */}
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
           {/* overlay para bajar brillo global */}
@@ -67,7 +101,6 @@ export default function ServicesPage() {
           {/* textura tipo noise muy sutil */}
           <div className={styles.noise} />
         </div>
-
 
         <section className="relative mx-auto max-w-6xl">
           <MainTitle text="Nuestros servicios" variant="dark" />
@@ -120,12 +153,12 @@ export default function ServicesPage() {
               {activeCategory.subtitle}
             </p>
 
-            {/* 🔥 NUEVA LÍNEA PREMIUM: contador de servicios */}
+            {/* 🔥 LÍNEA PREMIUM: contador de servicios */}
             <p className="mt-1 text-[11px] text-slate-400">
-              {services.length} servicios dentro de {activeCategory.label.toLowerCase()}
+              {services.length} servicios dentro de{" "}
+              {activeCategory.label.toLowerCase()}
             </p>
           </div>
-
 
           {/* ===== Slider horizontal de servicios ===== */}
           <div className="relative mt-8">
@@ -170,7 +203,7 @@ export default function ServicesPage() {
                     service={service}
                     category={activeCategory}
                     variant="dark"
-                    onClick={() => setSelectedService(service)}
+                    onClick={() => handleSelectService(service)}
                   />
                 </div>
               ))}
@@ -184,10 +217,7 @@ export default function ServicesPage() {
       </main>
 
       {/* Modal centrado en el servicio seleccionado */}
-      <Modal
-        isOpen={!!selectedService}
-        onClose={() => setSelectedService(null)}
-      >
+      <Modal isOpen={!!selectedService} onClose={handleCloseModal}>
         {selectedService && <ServiceDetail service={selectedService} />}
       </Modal>
     </>
