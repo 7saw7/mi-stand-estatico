@@ -7,30 +7,35 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
   const [fadeOut, setFadeOut] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
-  const handleVideoEnd = () => {
+  const finishIntro = () => {
     setFadeOut(true);
     onFinish();
   };
 
-  // Intentar reproducir al montar (ayuda en algunos iPhone)
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    // 👇 Aseguramos que nazca muteado de cara a Safari/iOS
+    video.muted = true;
+    video.defaultMuted = true;
+
     const tryPlay = async () => {
       try {
         await video.play();
+        // ✅ autoplay OK → dejamos que onEnded cierre la intro
       } catch {
-        // iOS puede bloquear igual; en ese caso saldrá el botón de play
-        // y el usuario podrá tocarlo porque ya no tiene pointer-events-none
+        // ❌ iOS bloqueó autoplay → saltamos la intro para no mostrar botón de play
+        finishIntro();
       }
     };
 
-    // Si está muteado, debería poder hacer autoplay
-    if (video.muted) {
-      void tryPlay();
-    }
-  }, []);
+    void tryPlay();
+  }, [onFinish]);
+
+  const handleVideoEnd = () => {
+    finishIntro();
+  };
 
   return (
     <div
