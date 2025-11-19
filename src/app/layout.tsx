@@ -37,7 +37,6 @@ export default function RootLayout({
       className={`${inter.variable} ${roboto_mono.variable} ${poppins.variable}`}
     >
       <head>
-        {/* Mejora 2: preload del video */}
         <link
           rel="preload"
           href="/assets/videos/inicio.mp4"
@@ -45,7 +44,7 @@ export default function RootLayout({
           type="video/mp4"
         />
       </head>
-      <body>
+      <body className="bg-slate-950 text-slate-100">
         <VideoIntroWrapper>{children}</VideoIntroWrapper>
       </body>
     </html>

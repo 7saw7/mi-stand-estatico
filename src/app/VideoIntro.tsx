@@ -8,12 +8,7 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
 
   const handleVideoEnd = () => {
     setFadeOut(true);
-  };
-
-  const handleTransitionEnd = () => {
-    if (fadeOut) {
-      onFinish();
-    }
+    onFinish();
   };
 
   return (
@@ -25,8 +20,7 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
         transition-opacity duration-700
         ${fadeOut ? "opacity-0" : "opacity-100"}
       `}
-      style={{ willChange: "opacity" }} // Mejora 6
-      onTransitionEnd={handleTransitionEnd}
+      style={{ willChange: "opacity" }}
     >
       <video
         autoPlay
@@ -34,7 +28,7 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
         muted
         preload="auto"
         onEnded={handleVideoEnd}
-        className="w-full h-full object-cover pointer-events-none" // Mejora 5
+        className="w-full h-full object-cover pointer-events-none"
       >
         <source src="/assets/videos/inicio.mp4" type="video/mp4" />
       </video>
