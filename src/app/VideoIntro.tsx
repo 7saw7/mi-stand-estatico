@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
   const [fadeOut, setFadeOut] = useState(false);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const finishIntro = () => {
     setFadeOut(true);
@@ -16,21 +16,25 @@ export default function VideoIntro({ onFinish }: { onFinish: () => void }) {
     const video = videoRef.current;
     if (!video) return;
 
-    // 👇 Aseguramos que nazca muteado de cara a Safari/iOS
+    // iOS 15+ requiere muted y playsInline
     video.muted = true;
     video.defaultMuted = true;
+    video.playsInline = true;
 
     const tryPlay = async () => {
       try {
+        // ✔ Intento predictivo — muy compatible en iPhone modernos
         await video.play();
-        // ✅ autoplay OK → dejamos que onEnded cierre la intro
-      } catch {
-        // ❌ iOS bloqueó autoplay → saltamos la intro para no mostrar botón de play
+      } catch (err) {
+        // ❌ iOS lo bloqueó → saltar intro (UX perfecto)
         finishIntro();
       }
     };
 
-    void tryPlay();
+    // pequeño delay ayuda a Safari en iPhone modernos
+    setTimeout(() => {
+      void tryPlay();
+    }, 50);
   }, [onFinish]);
 
   const handleVideoEnd = () => {
