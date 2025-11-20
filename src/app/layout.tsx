@@ -25,6 +25,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Codeva Studio",
   description: "Desarrollo de páginas web que impulsan tu negocio.",
+  icons: {
+    icon: "/assets/images/icon.png",
+  },
 };
 
 export default function RootLayout({

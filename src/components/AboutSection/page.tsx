@@ -20,7 +20,7 @@ export default function AboutSection() {
       className="relative py-20 lg:py-24" // ❗ podrías probar sin overflow-hidden aquí
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
     >
       {/* === BG GOD MODE OPTIMIZADO === */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
