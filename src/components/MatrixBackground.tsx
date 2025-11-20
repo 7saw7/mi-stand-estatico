@@ -1,3 +1,4 @@
+// src/app/components/MatrixBackground.tsx
 "use client";
 
 import { memo } from "react";
@@ -17,10 +18,10 @@ function MatrixBackgroundBase() {
   return (
     <div
       className="
-        absolute inset-0   /* 👈 ocupa EXACTAMENTE la altura del header */
+        absolute inset-0
         pointer-events-none
-        overflow-hidden    /* 👈 evita caer más allá */
-        z-0
+        overflow-hidden
+        -z-10   /* 👈 ahora SIEMPRE detrás del contenido del header */
       "
     >
       {COLUMNS.map((col) => (

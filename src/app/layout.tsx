@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import VideoIntroWrapper from "./VideoIntroWrapper";
+import FloatingWhatsApp from "src/components/FloatingWhatsApp";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,8 +45,11 @@ export default function RootLayout({
           type="video/mp4"
         />
       </head>
-      <body className="bg-slate-950 text-slate-100">
-        <VideoIntroWrapper>{children}</VideoIntroWrapper>
+      <body className="bg-slate-950 text-slate-100 overflow-x-hidden">
+        <VideoIntroWrapper>
+          {children}
+          <FloatingWhatsApp />
+        </VideoIntroWrapper>
       </body>
     </html>
   );

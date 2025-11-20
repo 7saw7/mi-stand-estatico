@@ -263,3 +263,26 @@ body {
   animation: lightflow 18s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora-3d,
+  .animate-lightflow,
+  .animate-hero-shimmer,
+  .animate-float-slow,
+  .animate-float-slow-delayed {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-aurora-3d,
+  .animate-lightflow {
+    animation: none;
+    opacity: 0.18; /* dejarlas estáticas y ligeras */
+  }
+}
+
+/*animacion btn wsp*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}

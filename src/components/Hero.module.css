@@ -1,0 +1,61 @@
+/* ===========================================
+   HERO BASE (NO INTERFIERE CON NAV)
+   =========================================== */
+
+.heroSection {
+  position: relative;
+  z-index: 0; /* 🔥 Clave: NO subir este z-index */
+  width: 100%;
+  min-height: 100vh;
+
+  /* Evita cortes raros en móviles */
+  overflow: hidden;
+}
+
+/* ===========================================
+   Suaviza transiciones internas y glows
+   =========================================== */
+.heroSection * {
+  will-change: opacity, transform, filter;
+}
+
+/* ===========================================
+   Ajuste de background (fallback)
+   =========================================== */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Puedes cambiar esta ruta si deseas un fallback */
+  background-image: url("/assets/images/hero.png");
+
+  opacity: 0.75;
+  filter: brightness(0.7) saturate(1.2);
+}
+
+/* ===========================================
+   Responsive tuning
+   =========================================== */
+
+@media (max-width: 1024px) {
+  .heroSection {
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    min-height: 85vh;
+  }
+
+  .heroSection::before {
+    opacity: 0.65;
+    filter: brightness(0.8) saturate(1.15);
+  }
+}

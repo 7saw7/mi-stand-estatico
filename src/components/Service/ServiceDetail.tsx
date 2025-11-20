@@ -106,12 +106,6 @@ export default function ServiceDetail({ service }: Props) {
               <Sparkles className="h-3 w-3" />
               Servicio · Diseño & Desarrollo
             </span>
-
-            {service.badge && (
-              <span className="inline-flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-[11px] font-semibold tracking-[0.16em] text-sky-200">
-                {service.badge}
-              </span>
-            )}
           </div>
 
           <div className="flex items-center gap-2 text-[11px] text-slate-300">

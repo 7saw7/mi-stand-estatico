@@ -65,13 +65,6 @@ export default function ServiceCard({
         className="pointer-events-none absolute inset-x-0 bottom-[-40%] -z-10 h-40 bg-gradient-to-t from-black/50 via-black/10 to-transparent"
       />
 
-      {/* Badge superior */}
-      {service.badge && (
-        <span className="absolute right-4 top-4 rounded-full bg-emerald-500/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-200 backdrop-blur-sm">
-          {service.badge}
-        </span>
-      )}
-
       {/* Categoría */}
       <span
         className={[

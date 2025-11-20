@@ -114,8 +114,19 @@ export default function MisionVisionPage() {
                     </li>
                   ))}
                 </ul>
-
-                <div className="relative mt-4 h-36 w-full flex-1 overflow-hidden rounded-2xl border border-cyan-400/35 bg-slate-950/90 p-2 md:mt-0">
+                <div
+                  className="
+                    relative mt-4
+                    h-44        /* móvil grande para que se vea bien */
+                    py-20
+                    sm:h-52
+                    md:h-48     /* baja en desktop */
+                    lg:h-44     /* aún más equilibrado en pantallas grandes */
+                    w-full flex-1 overflow-hidden
+                    rounded-2xl border border-cyan-400/35 bg-slate-950/90 p-2
+                    md:mt-0
+                  "
+                >
                   <Image
                     src="/media/about/mission-grid.jpg"
                     alt="Visual de una interfaz enfocada en métricas y resultados"
@@ -169,12 +180,24 @@ export default function MisionVisionPage() {
                   ))}
                 </ul>
 
-                <div className="relative mt-10 h-36 w-full flex-1 overflow-hidden rounded-2xl border border-cyan-400/35 bg-slate-950/90 p-2 md:mt-0">
+                  <div
+                    className="
+                      relative mt-6
+                      h-40       /* móvil */
+                      py-20
+                      sm:h-44
+                      md:h-48    /* equilibra texto + imagen */
+                      lg:h-44
+                      w-full flex-1 overflow-hidden
+                      rounded-2xl border border-indigo-400/35 bg-slate-950/90 p-2
+                      md:mt-0
+                    "
+                  >
                   <Image
                     src="/media/about/vision-grid.jpg"
                     alt="Mapa conceptual de ecosistema digital y crecimiento"
                     fill
-                    className="object-cover opacity-[0.96] "
+                    className="object-cover opacity-[0.96]"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/55 via-transparent to-fuchsia-400/30" />
                 </div>

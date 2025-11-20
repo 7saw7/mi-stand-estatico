@@ -20,7 +20,6 @@ export interface ServiceConfig {
   tags?: string[];
   featured?: boolean;
   image?: string; // bg ilustrativa
-  badge?: string;
   theme?: "web" | "apps" | "branding";
 }
 
@@ -69,7 +68,6 @@ export const SERVICES: ServiceConfig[] = [
     tags: ["Campañas", "Leads", "Performance"],
     featured: true,
     image: "/media/services/landing-pages.jpg",
-    badge: "Alto rendimiento",
     theme: "web",
   },
   {
@@ -107,7 +105,6 @@ export const SERVICES: ServiceConfig[] = [
     tags: ["Tiendas", "Pagos online", "Conversión"],
     featured: true,
     image: "/media/services/ecommerce.jpg",
-    badge: "Listo para escalar",
     theme: "web",
   },
   {
@@ -216,7 +213,6 @@ export const SERVICES: ServiceConfig[] = [
     tags: ["Prototipos", "Figma", "Design system"],
     featured: true,
     image: "/media/services/ux-ui.jpg",
-    badge: "Experiencia primero",
     theme: "branding",
   },
 ];

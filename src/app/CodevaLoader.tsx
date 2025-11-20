@@ -14,7 +14,7 @@ export default function CodevaLoader() {
     >
       <div className="mb-4 animate-pulse">
         <img
-          src="/assets/logo/codeva-mini.png"
+          src="/assets/images/codeva-logo.png"
           alt="Codeva Studio"
           className="w-16 h-16 object-contain opacity-90"
         />

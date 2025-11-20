@@ -8,53 +8,38 @@ import {
   TbCalendarCheck,
 } from "react-icons/tb";
 import { SiLighthouse } from "react-icons/si";
+import styles from "./Hero.module.css";
 
 const Hero: React.FC = () => {
   return (
-      <section
-        className={[
-          "hero-section",
-          "relative z-0 overflow-hidden text-white",
-          "bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)]",
-        ].join(" ")}
-      >
+    <section
+      className={[
+        styles.heroSection,
+        "relative z-0 overflow-hidden text-white",
+        "bg-[linear-gradient(to_bottom,rgba(2,6,23,0.94)_0%,rgba(3,10,28,0.92)_50%,rgba(2,6,23,0.9)_100%)]",
+      ].join(" ")}
+    >
       {/* ===== BG IMAGE ===== */}
       <div
         aria-hidden
-        className="absolute inset-0 z-12"
-        style={{
-          backgroundImage: "url('/assets/images/hero.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.75,          // súbelo para que se note
-          filter: "brightness(0.7) saturate(1.2)",
-        }}
+        className={`absolute inset-0 z-10 ${styles.heroBg}`}
       />
 
       {/* Overlay suave para que el texto siga siendo legible */}
-      <div
-        aria-hidden
-        className="absolute inset-0 z-10"
-        style={{
-          background:
-            "radial-gradient(circle at 15% 30%, rgba(0,0,0,0.15), transparent 55%)," +
-            "radial-gradient(circle at 85% 20%, rgba(0,0,0,0.4), transparent 60%)," +
-            "linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(2,6,23,0.95))",
-        }}
-      />
+      <div aria-hidden className={`absolute inset-0 z-20 ${styles.heroOverlay}`} />
 
-      {/* Glows */}
+      {/* Glows (con menos blur) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 top-10 z-20 h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.24),transparent)] blur-3xl"
+        className="pointer-events-none absolute -left-40 top-10 z-30 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.22),transparent)] blur-2xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-32 top-0 z-20 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.22),transparent)] blur-3xl"
+        className="pointer-events-none absolute -right-32 top-0 z-30 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.2),transparent)] blur-2xl"
       />
 
       {/* CONTENIDO */}
-      <div className="relative z-30 mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-center lg:py-24">
+      <div className="relative z-40 mx-auto flex max-w-6xl flex-col gap-10 px-6 py-16 lg:flex-row lg:items-center lg:py-24">
         {/* ==== Columna izquierda ==== */}
         <div className="max-w-xl space-y-4">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">
@@ -117,10 +102,10 @@ const Hero: React.FC = () => {
         {/* ==== Columna derecha: bloque premium ==== */}
         <div className="flex w-full justify-center lg:w-auto lg:justify-end">
           <div className="relative w-full max-w-sm">
-            {/* Glow exterior */}
+            {/* Glow exterior — lo mostramos solo en md+ para ahorrar en mobile */}
             <div
               aria-hidden
-              className="absolute -inset-0.5 rounded-3xl bg-[conic-gradient(from_140deg_at_0%_0%,rgba(16,185,129,0.8),rgba(56,189,248,0.7),rgba(16,185,129,0.3))] opacity-70 blur-sm"
+              className="absolute -inset-0.5 hidden rounded-3xl bg-[conic-gradient(from_140deg_at_0%_0%,rgba(16,185,129,0.7),rgba(56,189,248,0.6),rgba(16,185,129,0.2))] opacity-60 md:block"
             />
             {/* Card principal */}
             <div className="relative rounded-3xl border border-emerald-400/40 bg-slate-950/80 px-5 py-4 shadow-[0_18px_45px_rgba(0,0,0,0.85)] backdrop-blur-xl">
