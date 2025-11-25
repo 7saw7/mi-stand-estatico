@@ -229,7 +229,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
               animate={{ opacity: 0.55 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 z-[950] bg-slate-950/90 backdrop-blur-sm sm:hidden"
+              className="fixed inset-x-0 bottom-0 top-24 z-[950] bg-slate-950/90 backdrop-blur-sm sm:hidden"
               onClick={() => {
                 setIsOpen(false);
                 setMobileOpenSection(null);
@@ -247,8 +247,8 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
                 ease: "easeOut",
                 duration: 0.35,
               }}
-              className="fixed right-0 top-0 bottom-0 z-[960] w-[78%] max-w-[330px]
-                        pt-20 sm:hidden"
+              className="fixed right-0 bottom-0 top-20 z-[960] w-[78%] max-w-[330px]
++           sm:hidden"
             >
               {/* Glow / borde externo */}
               <div className="relative h-full">
