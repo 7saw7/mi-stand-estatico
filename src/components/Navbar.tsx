@@ -44,7 +44,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
   };
 
   const baseClasses =
-    "fixed inset-x-0 top-0 z-[999] w-full backdrop-blur-xl transition-all duration-300 overflow-visible";
+    "fixed inset-x-0 top-0 z-[900] w-full backdrop-blur-xl transition-all duration-300 overflow-visible";
   const themeClasses = isDark
     ? "text-slate-50 bg-transparent border-0"
     : "bg-transparent text-slate-900";
@@ -229,7 +229,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
               animate={{ opacity: 0.55 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="fixed inset-0 z-[900] bg-slate-950/90 backdrop-blur-sm sm:hidden"
+              className="fixed inset-0 z-[950] bg-slate-950/90 backdrop-blur-sm sm:hidden"
               onClick={() => {
                 setIsOpen(false);
                 setMobileOpenSection(null);
@@ -247,7 +247,7 @@ const Navbar: React.FC<NavbarProps> = ({ variant = "dark" }) => {
                 ease: "easeOut",
                 duration: 0.35,
               }}
-              className="fixed right-0 top-0 bottom-0 z-[910] w-[78%] max-w-[330px]
+              className="fixed right-0 top-0 bottom-0 z-[960] w-[78%] max-w-[330px]
                         pt-20 sm:hidden"
             >
               {/* Glow / borde externo */}
