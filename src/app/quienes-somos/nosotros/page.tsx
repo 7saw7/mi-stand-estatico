@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "src/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -238,7 +237,6 @@ export default function NosotrosPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

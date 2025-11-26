@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "src/components/Footer";
 import Link from "next/link";
 import type { IconType } from "react-icons";
 import {
@@ -136,7 +135,6 @@ export default function ValoresPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

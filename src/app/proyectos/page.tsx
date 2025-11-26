@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "src/components/Footer";
 import ProjectCard, { type Project } from "src/app/proyectos/projectCard";
 
 export const metadata: Metadata = {
@@ -95,7 +94,6 @@ export default function ProyectosPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

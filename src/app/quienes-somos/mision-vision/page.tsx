@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "src/components/Footer";
 import Image from "next/image";
 import {
   FiTarget,
@@ -204,7 +203,6 @@ export default function MisionVisionPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

@@ -1,7 +1,6 @@
 // src/components/Service/PremiumServicePage.tsx
 "use client";
 
-import Footer from "src/components/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import { ReactNode } from "react";
 import Link from "next/link";

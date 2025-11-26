@@ -1,6 +1,5 @@
 // src/app/contacto/page.tsx
 import type { Metadata } from "next";
-import Footer from "src/components/Footer";
 import {
   FiUser,
   FiMail,
@@ -180,7 +179,6 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

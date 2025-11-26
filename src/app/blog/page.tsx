@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Footer from "src/components/Footer";
 
 export const metadata: Metadata = {
   title: "Blog & recursos | Codeva Studio",
@@ -42,7 +41,6 @@ export default function BlogPage() {
         </div>
       </div>
     </section>
-    <Footer />
     </>
   );
 }
