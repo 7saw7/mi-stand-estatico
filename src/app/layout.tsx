@@ -4,6 +4,8 @@ import { Inter, Roboto_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import VideoIntroWrapper from "./VideoIntroWrapper";
 import FloatingWhatsApp from "src/components/FloatingWhatsApp";
+import Header from "src/components/Header";
+import Footer from "src/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -49,10 +51,12 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-slate-950 text-slate-100 overflow-x-hidden">
+        <Header />
         <VideoIntroWrapper>
           {children}
-          <FloatingWhatsApp />
         </VideoIntroWrapper>
+        <FloatingWhatsApp />        
+        <Footer />
       </body>
     </html>
   );
