@@ -307,7 +307,6 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }
