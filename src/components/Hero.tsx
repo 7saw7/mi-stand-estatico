@@ -8,6 +8,7 @@ import {
   TbCalendarCheck,
 } from "react-icons/tb";
 import { SiLighthouse } from "react-icons/si";
+import Link from "next/link";
 import styles from "./Hero.module.css";
 
 const Hero: React.FC = () => {
@@ -81,21 +82,28 @@ const Hero: React.FC = () => {
           </ul>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#contacto"
-              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-bold text-slate-900
-                         bg-emerald-400 shadow-lg shadow-emerald-500/20
-                         transition-all duration-200 ease-out hover:scale-110 hover:bg-emerald-300 active:scale-95"
+            <Link
+              href={`https://wa.me/51916983980?text=${encodeURIComponent(
+                "Hola Codeva, quisiera agendar una reunión"
+              )}`}
+              target="_blank"
+              className="
+                inline-flex items-center justify-center rounded-full 
+                px-5 py-2.5 text-sm font-bold text-slate-900
+                bg-emerald-400 shadow-lg shadow-emerald-500/20
+                transition-all duration-200 ease-out 
+                hover:scale-110 hover:bg-emerald-300 active:scale-95
+              "
             >
               Agenda una reunión
-            </a>
-            <a
-              href="#servicios-web"
+            </Link>
+            <Link
+              href="/servicios"
               className="inline-flex items-center justify-center rounded-full border border-emerald-300/40 px-4 py-2 text-xs font-medium text-emerald-200
                          transition-all duration-200 ease-out hover:bg-emerald-300/10 hover:scale-105 md:text-sm"
             >
               Ver servicios
-            </a>
+            </Link>
           </div>
         </div>
 

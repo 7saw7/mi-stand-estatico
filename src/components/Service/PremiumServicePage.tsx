@@ -166,14 +166,23 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  href="/#contacto"
-                  className={`${primaryCtaBase} ${t.primaryCta}`}
+                  href={`https://wa.me/51916983980?text=${encodeURIComponent(
+                    "Hola Codeva, quisiera agendar una reunión"
+                  )}`}
+                  target="_blank"
+                  className="
+                    inline-flex items-center justify-center rounded-full 
+                    px-5 py-2.5 text-sm font-bold text-slate-900
+                    bg-emerald-400 shadow-lg shadow-emerald-500/20
+                    transition-all duration-200 ease-out 
+                    hover:scale-110 hover:bg-emerald-300 active:scale-95
+                  "
                 >
-                  <span>Agendar llamada</span>
+                  Agendar llamada
                 </Link>
 
                 <Link
-                  href="/#servicios"
+                  href="/servicios"
                   className={`${secondaryCtaBase} ${t.secondaryCta}`}
                 >
                   Ver más servicios
@@ -288,7 +297,7 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
                   rápido sin perder calidad.
                 </p>
                 <Link
-                  href="/#contacto"
+                  href="/contacto"
                   className="mt-4 inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-slate-100"
                 >
                   Enviar brief del proyecto

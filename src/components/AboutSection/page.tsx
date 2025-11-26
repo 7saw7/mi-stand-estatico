@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -17,7 +18,7 @@ export default function AboutSection() {
   return (
     <motion.section
       id="nosotros"
-      className="relative py-20 lg:py-24" // ❗ podrías probar sin overflow-hidden aquí
+      className="relative py-6 lg:py-10" // ❗ podrías probar sin overflow-hidden aquí
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
@@ -128,7 +129,7 @@ export default function AboutSection() {
 
         {/* ENFOQUE / DIFERENCIALES + TIMELINE */}
         <motion.div
-          className="mt-14 grid gap-8 lg:grid-cols-[1.4fr_minmax(0,1fr)] lg:items-stretch"
+          className="mt-7 grid gap-8 lg:grid-cols-[1.4fr_minmax(0,1fr)] lg:items-stretch"
           variants={fadeUpSoft}
           transition={{ delay: 0.2, duration: 0.55, ease: "easeOut" }}
         >
@@ -141,7 +142,7 @@ export default function AboutSection() {
               <div className="absolute -top-32 -left-4 h-36 w-36 rounded-full bg-emerald-500/20 blur-2xl" />
               <div className="absolute -bottom-32 right-4 h-36 w-36 rounded-full bg-cyan-400/15 blur-2xl" />
             </div>
-            <div className="relative">
+            <div className="relative ">
               <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-emerald-300">
                 Nuestro enfoque
               </p>
@@ -233,19 +234,22 @@ export default function AboutSection() {
         <motion.div
           variants={fadeUpSoft}
           transition={{ delay: 0.3, duration: 0.55, ease: "easeOut" }}
-          className="mt-14 flex flex-col items-center gap-4 text-center"
+          className="mt-10 flex flex-col items-center gap-4 text-center"
         >
           <p className="max-w-xl text-sm text-white/90">
             Si sientes que tu presencia digital ya no refleja el nivel de tu
             negocio, conversemos. Nos encantará diseñar y construir algo que te
             haga sentir orgulloso cada vez que lo abras.
           </p>
-          <a
-            href="#contacto"
+          <Link
+            href={`https://wa.me/51916983980?text=${encodeURIComponent(
+              "Hola Codeva, estoy interesado en un proyecto y quisiera mas información."
+            )}`}
+            target="_blank"
             className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-cyan-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-lg shadow-emerald-500/30 transition hover:-translate-y-0.5 hover:from-emerald-400 hover:via-cyan-400 hover:to-sky-400"
           >
             Hablemos de tu proyecto
-          </a>
+          </Link>
         </motion.div>
       </div>
     </motion.section>

@@ -1,5 +1,6 @@
 // src/components/Service/ServiceDetail.tsx
 "use client";
+import Link from "next/link";
 
 import { ArrowRight, CheckCircle2, Clock3, Sparkles } from "lucide-react";
 import type { ServiceConfig } from "src/app/config/services";
@@ -219,23 +220,24 @@ export default function ServiceDetail({ service }: Props) {
 
             {/* empujamos CTA hacia abajo */}
             <div className="mt-auto">
-              <button
-                className="
-                  group inline-flex w-full items-center justify-center gap-2
-                  rounded-full bg-gradient-to-r
-                  from-emerald-500 via-emerald-400 to-cyan-400
-                  px-6 py-3 text-sm font-semibold text-slate-950
-                  shadow-lg shadow-emerald-500/30
-                  transition
-                  hover:from-emerald-400 hover:via-cyan-400 hover:to-sky-400
-                "
-                onClick={() => {
-                  alert("¡Te contactaremos pronto para hablar de tu proyecto!");
-                }}
-              >
-                <span>Quiero este tipo de proyecto</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
+            <Link
+              href={`https://wa.me/51916983980?text=${encodeURIComponent(
+                "Hola Codeva, me interesa este servicio: " + service.name
+              )}`}
+              target="_blank"
+              className="
+                group inline-flex w-full items-center justify-center gap-2
+                rounded-full bg-gradient-to-r
+                from-emerald-500 via-emerald-400 to-cyan-400
+                px-6 py-3 text-sm font-semibold text-slate-950
+                shadow-lg shadow-emerald-500/30
+                transition
+                hover:from-emerald-400 hover:via-cyan-400 hover:to-sky-400
+              "
+            >
+              <span>Quiero este tipo de proyecto</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
 
               <p className="mt-3 text-center text-[11px] text-slate-400">
                 También podemos adaptar este servicio a una versión{" "}
