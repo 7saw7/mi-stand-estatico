@@ -6,6 +6,7 @@ import VideoIntroWrapper from "./VideoIntroWrapper";
 import FloatingWhatsApp from "src/components/FloatingWhatsApp";
 import Header from "src/components/Header";
 import Footer from "src/components/Footer";
+import Navbar from "src/components/Navbar"; // 👈 importa aquí
 
 const inter = Inter({
   subsets: ["latin"],
@@ -50,12 +51,15 @@ export default function RootLayout({
           type="video/mp4"
         />
       </head>
-      <body className="bg-slate-950 text-slate-100 overflow-x-hidden">
-        <Header />
-        <VideoIntroWrapper>
-          {children}
-        </VideoIntroWrapper>
-        <FloatingWhatsApp />        
+      <body className="bg-slate-950 text-slate-100 overflow-x-hidden relative">
+        {/* 🔹 Navbar FIJO de toda la web */}
+        <Navbar variant="dark" />
+
+        {/* 🔹 El resto de la página ya debajo del navbar */}
+        <Header /> {/* ya SIN navbar dentro */}
+        <VideoIntroWrapper>{children}</VideoIntroWrapper>
+
+        <FloatingWhatsApp />
         <Footer />
       </body>
     </html>
