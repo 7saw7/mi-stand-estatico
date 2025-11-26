@@ -1,6 +1,5 @@
 // src/app/contacto/page.tsx
 import type { Metadata } from "next";
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import {
   FiUser,
@@ -20,7 +19,6 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
-      <Header />
 
       {/* sección contacto: SIN fondo propio, usa el del layout */}
       <section className="relative min-h-screen overflow-hidden pt-[6rem] pb-16 px-5 md:px-10 lg:px-20">

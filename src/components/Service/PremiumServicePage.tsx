@@ -1,7 +1,6 @@
 // src/components/Service/PremiumServicePage.tsx
 "use client";
 
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import { FaCheckCircle } from "react-icons/fa";
 import { ReactNode } from "react";
@@ -132,7 +131,6 @@ export default function PremiumServicePage(props: PremiumServicePageProps) {
 
   return (
     <>
-      <Header />
       <section className="relative min-h-screen overflow-hidden pt-[6rem] pb-16 px-5 md:px-10 lg:px-20">
         {/* === BG GOD MODE === */}
         <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

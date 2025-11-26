@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import ProjectCard, { type Project } from "src/app/proyectos/projectCard";
 
@@ -50,7 +49,6 @@ const PROJECTS: Project[] = [
 export default function ProyectosPage() {
   return (
     <>
-      <Header />
 
       <section className="relative min-h-screen overflow-hidden pt-[6rem] p-5 md:p-10 lg:p-20">
         {/* Fondo */}

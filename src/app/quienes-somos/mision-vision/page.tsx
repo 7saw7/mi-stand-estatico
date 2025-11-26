@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import Image from "next/image";
 import {
@@ -20,8 +19,6 @@ export const metadata: Metadata = {
 export default function MisionVisionPage() {
   return (
     <>
-      <Header />
-
       <section className="relative min-h-screen overflow-hidden pt-[6rem] p-5 md:p-10 lg:p-20">
       <div className="absolute inset-0 bg-black/60 -z-10" />
         {/* === BG PRO AZUL/VIOLETA === */}

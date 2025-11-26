@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 
 export const metadata: Metadata = {
@@ -12,7 +11,6 @@ export const metadata: Metadata = {
 export default function QuienesSomosPage() {
   return (
     <>
-    <Header />
     <section className="relative min-h-screen overflow-hidden pt-[6rem] p-5 md:p-10 lg:p-20">
       {/* BG */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 
 export const metadata: Metadata = {
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-    <Header />
+    
     <section className="relative min-h-[70vh] overflow-hidden pt-[6rem] p-5 md:p-10 lg:p-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-[#020817] via-[#000915] to-[#00060c]" />

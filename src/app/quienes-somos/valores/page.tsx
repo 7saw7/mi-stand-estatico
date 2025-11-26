@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import Link from "next/link";
 import type { IconType } from "react-icons";
@@ -60,7 +59,6 @@ const VALUES: ValueCard[] = [
 export default function ValoresPage() {
   return (
     <>
-      <Header />
 
       <section className="relative min-h-screen overflow-hidden pt-[6rem] p-5 md:p-10 lg:p-20">
         {/* BG premium */}
