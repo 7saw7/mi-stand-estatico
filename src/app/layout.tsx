@@ -50,6 +50,8 @@ export default function RootLayout({
           as="video"
           type="video/mp4"
         />
+        <link rel="icon" href="/icon256.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon256.png" />
       </head>
       <body className="bg-slate-950 text-slate-100 overflow-x-hidden relative">
         {/* 🔹 Navbar FIJO de toda la web */}
